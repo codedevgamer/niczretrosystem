@@ -1,0 +1,753 @@
+/* Responsivo - NiczRetroSystem */
+
+/* Tablets e telas médias (768px a 1024px) */
+@media (max-width: 1024px) {
+    .header {
+        padding: 12px 20px;
+    }
+
+    .header-title h1 {
+        font-size: 20px;
+    }
+
+    .main-nav {
+        padding: 12px 20px;
+        gap: 8px;
+    }
+
+    .nav-btn {
+        padding: 8px 15px;
+        font-size: 13px;
+    }
+
+    .section {
+        padding: 15px 20px;
+    }
+
+    .platforms-grid {
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        gap: 15px;
+    }
+
+    .platform-icon {
+        font-size: 40px;
+    }
+
+    .platform-card h3 {
+        font-size: 18px;
+    }
+
+    .games-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 12px;
+    }
+
+    .game-item {
+        padding: 8px;
+    }
+
+    .game-thumbnail {
+        height: 85px;
+    }
+
+    .music-display {
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .music-cover img {
+        width: 130px;
+        height: 130px;
+    }
+
+    .music-info h2 {
+        font-size: 20px;
+    }
+
+    .modal-content {
+        max-width: 450px;
+        padding: 20px;
+    }
+
+    #gameImage {
+        width: 130px;
+        height: 130px;
+    }
+
+    .game-details {
+        gap: 15px;
+    }
+
+    .settings-container {
+        max-width: 600px;
+    }
+
+    .footer {
+        font-size: 11px;
+        padding: 8px 20px;
+    }
+}
+
+/* Tablets pequenos (600px a 768px) */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 15px;
+    }
+
+    .header-title {
+        gap: 10px;
+    }
+
+    .header-logo {
+        width: 35px;
+        height: 35px;
+    }
+
+    .header-title h1 {
+        font-size: 18px;
+    }
+
+    .header-info {
+        gap: 20px;
+        font-size: 12px;
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    .main-nav {
+        padding: 10px 15px;
+        gap: 5px;
+        flex-wrap: wrap;
+    }
+
+    .nav-btn {
+        padding: 7px 12px;
+        font-size: 12px;
+        flex: 1;
+        min-width: 80px;
+    }
+
+    .section {
+        padding: 12px 15px;
+    }
+
+    .platforms-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        margin-bottom: 15px;
+    }
+
+    .platform-card {
+        padding: 15px;
+        border-radius: 6px;
+    }
+
+    .platform-icon {
+        font-size: 36px;
+        margin-bottom: 8px;
+    }
+
+    .platform-card h3 {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    .platform-card p {
+        font-size: 11px;
+    }
+
+    .games-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+
+    .game-item {
+        padding: 6px;
+        border-radius: 4px;
+    }
+
+    .game-thumbnail {
+        height: 70px;
+        margin-bottom: 5px;
+    }
+
+    .game-item p {
+        font-size: 10px;
+    }
+
+    .back-btn {
+        padding: 8px 15px;
+        font-size: 12px;
+        margin-bottom: 15px;
+    }
+
+    .music-display {
+        flex-direction: column;
+        padding: 15px;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+
+    .music-cover img {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto;
+    }
+
+    .music-info {
+        text-align: center;
+    }
+
+    .music-info h2 {
+        font-size: 18px;
+    }
+
+    .music-info p {
+        margin-bottom: 15px;
+    }
+
+    .music-progress {
+        justify-content: center;
+    }
+
+    .music-controls {
+        gap: 8px;
+        margin-bottom: 20px;
+    }
+
+    .music-btn {
+        padding: 10px 15px;
+        font-size: 12px;
+        flex: 1;
+    }
+
+    .playlist {
+        padding: 15px;
+    }
+
+    .playlist h3 {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    .playlist-items {
+        max-height: 250px;
+    }
+
+    .playlist-item {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    .settings-container {
+        max-width: 100%;
+    }
+
+    .settings-group {
+        padding: 15px;
+        margin-bottom: 15px;
+        border-radius: 6px;
+    }
+
+    .settings-group h3 {
+        font-size: 14px;
+        margin-bottom: 12px;
+    }
+
+    .setting-option {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .setting-option label {
+        min-width: auto;
+        font-size: 12px;
+    }
+
+    .setting-option input,
+    .setting-option select {
+        width: 100%;
+    }
+
+    .controllers-list {
+        max-height: 120px;
+    }
+
+    .btn-primary,
+    .btn-secondary,
+    .btn-danger {
+        padding: 10px 15px;
+        font-size: 12px;
+        margin: 4px 0;
+        width: 100%;
+    }
+
+    .modal-content {
+        max-width: 90%;
+        padding: 15px;
+        border-radius: 8px;
+    }
+
+    .game-details {
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 15px;
+    }
+
+    #gameImage {
+        width: 100%;
+        max-width: 150px;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    .game-info {
+        text-align: center;
+    }
+
+    .game-info h2 {
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+
+    .game-info p {
+        font-size: 12px;
+        margin-bottom: 8px;
+    }
+
+    .game-meta {
+        justify-content: center;
+        font-size: 11px;
+    }
+
+    .game-actions {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .footer {
+        font-size: 10px;
+        padding: 8px 10px;
+    }
+}
+
+/* Celulares (480px a 600px) */
+@media (max-width: 600px) {
+    html, body {
+        font-size: 14px;
+    }
+
+    .splash-title {
+        font-size: 36px;
+        letter-spacing: 2px;
+    }
+
+    .splash-subtitle {
+        font-size: 14px;
+    }
+
+    .splash-logo {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 15px;
+    }
+
+    .loader {
+        width: 40px;
+        height: 40px;
+        border: 3px solid var(--secondary-color);
+        border-top: 3px solid var(--primary-color);
+    }
+
+    .header {
+        padding: 8px 10px;
+    }
+
+    .header-title {
+        gap: 8px;
+    }
+
+    .header-logo {
+        width: 30px;
+        height: 30px;
+    }
+
+    .header-title h1 {
+        font-size: 16px;
+        letter-spacing: 1px;
+    }
+
+    .header-info {
+        gap: 15px;
+        font-size: 11px;
+    }
+
+    .main-nav {
+        padding: 8px 10px;
+        gap: 4px;
+    }
+
+    .nav-btn {
+        padding: 6px 10px;
+        font-size: 11px;
+    }
+
+    .section {
+        padding: 10px 12px;
+    }
+
+    .platforms-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .platform-card {
+        padding: 12px;
+    }
+
+    .platform-icon {
+        font-size: 32px;
+        margin-bottom: 6px;
+    }
+
+    .platform-card h3 {
+        font-size: 14px;
+    }
+
+    .platform-card p {
+        font-size: 10px;
+    }
+
+    .games-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .game-item {
+        padding: 5px;
+    }
+
+    .game-thumbnail {
+        height: 60px;
+        margin-bottom: 4px;
+    }
+
+    .game-item p {
+        font-size: 9px;
+    }
+
+    .back-btn {
+        padding: 8px 12px;
+        font-size: 11px;
+        margin-bottom: 12px;
+    }
+
+    .music-display {
+        padding: 12px;
+        gap: 12px;
+    }
+
+    .music-cover img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .music-info h2 {
+        font-size: 16px;
+    }
+
+    .music-info p {
+        font-size: 12px;
+    }
+
+    .music-progress {
+        font-size: 10px;
+    }
+
+    .music-controls {
+        gap: 6px;
+        margin-bottom: 15px;
+    }
+
+    .music-btn {
+        padding: 8px 12px;
+        font-size: 11px;
+    }
+
+    .playlist {
+        padding: 12px;
+    }
+
+    .playlist h3 {
+        font-size: 13px;
+    }
+
+    .playlist-items {
+        max-height: 200px;
+    }
+
+    .playlist-item {
+        padding: 6px;
+        font-size: 11px;
+    }
+
+    .settings-group {
+        padding: 12px;
+        margin-bottom: 12px;
+    }
+
+    .settings-group h3 {
+        font-size: 13px;
+    }
+
+    .setting-option {
+        margin-bottom: 10px;
+        font-size: 11px;
+    }
+
+    .btn-primary,
+    .btn-secondary,
+    .btn-danger {
+        padding: 8px 12px;
+        font-size: 11px;
+        margin: 3px 0;
+    }
+
+    .modal-content {
+        max-width: 95%;
+        padding: 12px;
+    }
+
+    .game-details {
+        gap: 10px;
+        margin-bottom: 12px;
+    }
+
+    #gameImage {
+        max-width: 120px;
+    }
+
+    .game-info h2 {
+        font-size: 16px;
+    }
+
+    .game-info p {
+        font-size: 11px;
+    }
+
+    .game-meta {
+        font-size: 10px;
+    }
+
+    .footer {
+        font-size: 9px;
+        padding: 6px 8px;
+    }
+}
+
+/* Celulares pequenos (até 480px) */
+@media (max-width: 480px) {
+    .splash-title {
+        font-size: 28px;
+        letter-spacing: 1px;
+    }
+
+    .splash-subtitle {
+        font-size: 12px;
+    }
+
+    .splash-logo {
+        width: 80px;
+        height: 80px;
+    }
+
+    .header {
+        padding: 6px 8px;
+    }
+
+    .header-title h1 {
+        font-size: 14px;
+        letter-spacing: 0px;
+    }
+
+    .header-logo {
+        width: 25px;
+        height: 25px;
+    }
+
+    .header-info {
+        gap: 10px;
+        font-size: 10px;
+    }
+
+    .main-nav {
+        padding: 6px 8px;
+    }
+
+    .nav-btn {
+        padding: 5px 8px;
+        font-size: 10px;
+        min-width: 70px;
+    }
+
+    .section {
+        padding: 8px 10px;
+    }
+
+    .platforms-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+
+    .platform-card {
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .platform-icon {
+        font-size: 28px;
+    }
+
+    .platform-card h3 {
+        font-size: 13px;
+    }
+
+    .games-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
+    }
+
+    .game-thumbnail {
+        height: 50px;
+    }
+
+    .game-item p {
+        font-size: 8px;
+    }
+
+    .music-cover img {
+        width: 90px;
+        height: 90px;
+    }
+
+    .music-info h2 {
+        font-size: 14px;
+    }
+
+    .modal-content {
+        max-width: 98%;
+    }
+
+    #gameImage {
+        max-width: 100px;
+    }
+
+    .game-actions {
+        flex-direction: column;
+    }
+
+    .btn-primary,
+    .btn-secondary,
+    .btn-danger {
+        font-size: 10px;
+        padding: 6px 10px;
+    }
+}
+
+/* Modo paisagem para celulares */
+@media (max-height: 500px) {
+    .platforms-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+
+    .header {
+        padding: 8px 15px;
+    }
+
+    .header-title h1 {
+        font-size: 16px;
+    }
+
+    .section {
+        padding: 10px 15px;
+    }
+
+    .music-display {
+        flex-direction: row;
+    }
+
+    .modal-content {
+        max-width: 90%;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+}
+
+/* Modo retrato para tablets grandes */
+@media (min-width: 1025px) and (max-width: 1366px) {
+    .platforms-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .games-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+
+    .music-display {
+        max-width: 700px;
+    }
+}
+
+/* Telas grandes (1920px+) */
+@media (min-width: 1920px) {
+    .section {
+        padding: 30px 50px;
+    }
+
+    .platforms-grid {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 30px;
+    }
+
+    .platform-card {
+        padding: 25px;
+    }
+
+    .platform-icon {
+        font-size: 64px;
+    }
+
+    .games-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 20px;
+    }
+
+    .modal-content {
+        max-width: 600px;
+    }
+
+    .music-display {
+        max-width: 800px;
+    }
+}
+
+/* Impressora / Impressão */
+@media print {
+    .main-nav,
+    .header-info,
+    .music-controls,
+    .btn-primary,
+    .btn-secondary,
+    .btn-danger {
+        display: none !important;
+    }
+
+    .section {
+        background: white;
+        color: black;
+    }
+}
