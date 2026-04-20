@@ -1,0 +1,107 @@
+{
+  "ppsspp": {
+    "id": "ppsspp",
+    "name": "PPSSPP",
+    "description": "Emulador de PlayStation Portable",
+    "command": "ppsspp",
+    "romPath": "roms/psp",
+    "extensions": [".iso", ".cso", ".pbp"],
+    "installed": true,
+    "version": "1.13.2",
+    "website": "https://www.ppsspp.org/",
+    "github": "https://github.com/hrydgard/ppsspp",
+    "platforms": ["psp"],
+    "options": {
+      "fullscreen": ["--fullscreen"],
+      "graphics": ["--graphics=vulkan", "--graphics=opengl", "--graphics=d3d11"],
+      "audio": ["--audio=dsound", "--audio=wasapi"]
+    },
+    "cores": {
+      "vulkan": "high-performance",
+      "opengl": "compatible",
+      "d3d11": "windows-only"
+    }
+  },
+  "pcsx2": {
+    "id": "pcsx2",
+    "name": "PCSX2",
+    "description": "Emulador de PlayStation 2",
+    "command": "pcsx2",
+    "romPath": "roms/ps2",
+    "extensions": [".iso", ".bin", ".cue"],
+    "installed": true,
+    "version": "1.7.3",
+    "website": "https://pcsx2.net/",
+    "github": "https://github.com/PCSX2/pcsx2",
+    "platforms": ["ps2"],
+    "options": {
+      "fullscreen": ["--fullscreen"],
+      "graphics": ["--graphics=vulkan", "--graphics=opengl"],
+      "audio": ["--audio=auto"]
+    },
+    "cores": {
+      "vulkan": "high-performance",
+      "opengl": "compatible"
+    }
+  },
+  "retroarch": {
+    "id": "retroarch",
+    "name": "RetroArch",
+    "description": "Emulador multi-plataforma",
+    "command": "retroarch",
+    "website": "https://www.retroarch.com/",
+    "github": "https://github.com/libretro/RetroArch",
+    "installed": true,
+    "version": "1.14.0",
+    "platforms": ["nes", "snes", "n64", "gb", "gbc", "gba", "genesis", "master-system"],
+    "cores": [
+      {
+        "id": "snes9x",
+        "name": "Snes9x",
+        "file": "snes9x_libretro.so",
+        "platforms": ["nes", "snes"]
+      },
+      {
+        "id": "mupen64plus",
+        "name": "Mupen64Plus",
+        "file": "mupen64plus_libretro.so",
+        "platforms": ["n64"]
+      },
+      {
+        "id": "gambatte",
+        "name": "Gambatte",
+        "file": "gambatte_libretro.so",
+        "platforms": ["gb", "gbc"]
+      },
+      {
+        "id": "mgba",
+        "name": "mGBA",
+        "file": "mgba_libretro.so",
+        "platforms": ["gba"]
+      },
+      {
+        "id": "genesis_plus_gx",
+        "name": "Genesis Plus GX",
+        "file": "genesis_plus_gx_libretro.so",
+        "platforms": ["genesis", "master-system"]
+      }
+    ]
+  },
+  "dolphin": {
+    "id": "dolphin",
+    "name": "Dolphin",
+    "description": "Emulador de Nintendo Wii e GameCube",
+    "command": "dolphin-emu",
+    "romPath": "roms/wii",
+    "extensions": [".iso", ".wbfs"],
+    "installed": true,
+    "version": "5.0",
+    "website": "https://dolphin-emu.org/",
+    "github": "https://github.com/dolphin-emu/dolphin",
+    "platforms": ["wii"],
+    "options": {
+      "fullscreen": ["-e", "-f"],
+      "graphics": ["-g=Vulkan", "-g=OpenGL", "-g=D3D12"]
+    }
+  }
+}
