@@ -1,0 +1,464 @@
+{
+  "psp": [
+    {
+      "id": 1,
+      "name": "Grand Theft Auto: Liberty City Stories",
+      "rom": "gta-lcs.iso",
+      "year": 2005,
+      "description": "Jogo de ação e exploração em Liberty City",
+      "genre": "Ação/Aventura",
+      "developer": "Rockstar North",
+      "rating": 4.8
+    },
+    {
+      "id": 2,
+      "name": "Metal Gear Solid: Peace Walker",
+      "rom": "mgs-pw.iso",
+      "year": 2010,
+      "description": "Jogo de espionagem e ação tático",
+      "genre": "Ação/Stealth",
+      "developer": "Kojima Productions",
+      "rating": 4.9
+    },
+    {
+      "id": 3,
+      "name": "Monster Hunter Freedom Unite",
+      "rom": "mh-freedom.iso",
+      "year": 2009,
+      "description": "Caça de monstros e RPG",
+      "genre": "RPG/Ação",
+      "developer": "Capcom",
+      "rating": 4.7
+    },
+    {
+      "id": 4,
+      "name": "Final Fantasy VII Crisis Core",
+      "rom": "ff7-crisis-core.iso",
+      "year": 2007,
+      "description": "RPG de ação e ficção científica",
+      "genre": "RPG",
+      "developer": "Square Enix",
+      "rating": 4.6
+    },
+    {
+      "id": 5,
+      "name": "Tekken 6",
+      "rom": "tekken6.iso",
+      "year": 2009,
+      "description": "Jogo de luta 3D",
+      "genre": "Luta",
+      "developer": "Bandai Namco",
+      "rating": 4.5
+    },
+    {
+      "id": 6,
+      "name": "God of War: Chains of Olympus",
+      "rom": "gow-chains.iso",
+      "year": 2010,
+      "description": "Ação épica com mitologia grega",
+      "genre": "Ação/Aventura",
+      "developer": "Ready at Dawn",
+      "rating": 4.8
+    }
+  ],
+  "ps2": [
+    {
+      "id": 101,
+      "name": "Metal Gear Solid 2: Sons of Liberty",
+      "rom": "mgs2.iso",
+      "year": 2001,
+      "description": "Clássico de stealth action",
+      "genre": "Ação/Stealth",
+      "developer": "Kojima Productions",
+      "rating": 4.9
+    },
+    {
+      "id": 102,
+      "name": "Final Fantasy X",
+      "rom": "ffx.iso",
+      "year": 2001,
+      "description": "RPG épico com sistema de battle único",
+      "genre": "RPG",
+      "developer": "Square Enix",
+      "rating": 4.8
+    },
+    {
+      "id": 103,
+      "name": "Grand Theft Auto III",
+      "rom": "gta3.iso",
+      "year": 2001,
+      "description": "Jogo de ação e exploração revolucionário",
+      "genre": "Ação/Aventura",
+      "developer": "Rockstar North",
+      "rating": 4.9
+    },
+    {
+      "id": 104,
+      "name": "Final Fantasy XII",
+      "rom": "ffxii.iso",
+      "year": 2006,
+      "description": "RPG com sistema de gambit",
+      "genre": "RPG",
+      "developer": "Square Enix",
+      "rating": 4.7
+    },
+    {
+      "id": 105,
+      "name": "Kingdom Hearts II",
+      "rom": "kh2.iso",
+      "year": 2005,
+      "description": "RPG com personagens Disney",
+      "genre": "RPG/Ação",
+      "developer": "Square Enix",
+      "rating": 4.6
+    },
+    {
+      "id": 106,
+      "name": "Resident Evil 4",
+      "rom": "re4.iso",
+      "year": 2005,
+      "description": "Survival horror inovador",
+      "genre": "Horror",
+      "developer": "Capcom",
+      "rating": 4.8
+    },
+    {
+      "id": 107,
+      "name": "Grand Theft Auto: Vice City",
+      "rom": "gtavc.iso",
+      "year": 2002,
+      "description": "Ação em Miami nos anos 80",
+      "genre": "Ação/Aventura",
+      "developer": "Rockstar North",
+      "rating": 4.8
+    }
+  ],
+  "nintendo": [
+    {
+      "id": 201,
+      "name": "Super Mario Bros",
+      "rom": "smb.nes",
+      "year": 1985,
+      "description": "Clássico de plataforma que revolucionou os games",
+      "genre": "Plataforma",
+      "developer": "Nintendo",
+      "rating": 5.0,
+      "platform": "nes"
+    },
+    {
+      "id": 202,
+      "name": "The Legend of Zelda",
+      "rom": "zelda.nes",
+      "year": 1986,
+      "description": "Aventura épica em Hyrule",
+      "genre": "Aventura/RPG",
+      "developer": "Nintendo",
+      "rating": 4.9,
+      "platform": "nes"
+    },
+    {
+      "id": 203,
+      "name": "Metroid",
+      "rom": "metroid.nes",
+      "year": 1986,
+      "description": "Exploração e ação",
+      "genre": "Ação/Aventura",
+      "developer": "Nintendo",
+      "rating": 4.8,
+      "platform": "nes"
+    },
+    {
+      "id": 204,
+      "name": "Super Mario World",
+      "rom": "smw.smc",
+      "year": 1990,
+      "description": "Plataforma clássico do SNES",
+      "genre": "Plataforma",
+      "developer": "Nintendo",
+      "rating": 4.9,
+      "platform": "snes"
+    },
+    {
+      "id": 205,
+      "name": "Chrono Trigger",
+      "rom": "chrono-trigger.smc",
+      "year": 1995,
+      "description": "RPG clássico com múltiplos finais",
+      "genre": "RPG",
+      "developer": "Square",
+      "rating": 4.9,
+      "platform": "snes"
+    },
+    {
+      "id": 206,
+      "name": "The Legend of Zelda: A Link to the Past",
+      "rom": "zelda-alttp.smc",
+      "year": 1991,
+      "description": "Aventura em Hyrule",
+      "genre": "Aventura/RPG",
+      "developer": "Nintendo",
+      "rating": 4.9,
+      "platform": "snes"
+    },
+    {
+      "id": 207,
+      "name": "Super Mario 64",
+      "rom": "sm64.z64",
+      "year": 1996,
+      "description": "Primeiro Mario em 3D",
+      "genre": "Plataforma",
+      "developer": "Nintendo",
+      "rating": 4.9,
+      "platform": "n64"
+    },
+    {
+      "id": 208,
+      "name": "The Legend of Zelda: Ocarina of Time",
+      "rom": "zelda-oot.z64",
+      "year": 1998,
+      "description": "Aventura épica em 3D",
+      "genre": "Aventura/RPG",
+      "developer": "Nintendo",
+      "rating": 4.9,
+      "platform": "n64"
+    },
+    {
+      "id": 209,
+      "name": "Mario Kart 64",
+      "rom": "mk64.z64",
+      "year": 1996,
+      "description": "Corrida multiplayer clássica",
+      "genre": "Corrida",
+      "developer": "Nintendo",
+      "rating": 4.7,
+      "platform": "n64"
+    },
+    {
+      "id": 210,
+      "name": "Pokémon Red",
+      "rom": "pokemon-red.gb",
+      "year": 1996,
+      "description": "RPG de coleta de criaturas",
+      "genre": "RPG",
+      "developer": "Game Freak",
+      "rating": 4.8,
+      "platform": "gb"
+    },
+    {
+      "id": 211,
+      "name": "Pokémon Gold",
+      "rom": "pokemon-gold.gbc",
+      "year": 1999,
+      "description": "Sequência de Pokémon",
+      "genre": "RPG",
+      "developer": "Game Freak",
+      "rating": 4.8,
+      "platform": "gbc"
+    },
+    {
+      "id": 212,
+      "name": "Pokémon Emerald",
+      "rom": "pokemon-emerald.gba",
+      "year": 2004,
+      "description": "RPG em Game Boy Advance",
+      "genre": "RPG",
+      "developer": "Game Freak",
+      "rating": 4.8,
+      "platform": "gba"
+    },
+    {
+      "id": 213,
+      "name": "The Legend of Zelda: The Minish Cap",
+      "rom": "zelda-minish-cap.gba",
+      "year": 2004,
+      "description": "Aventura em GBA",
+      "genre": "Aventura/RPG",
+      "developer": "Nintendo",
+      "rating": 4.7,
+      "platform": "gba"
+    }
+  ],
+  "wii": [
+    {
+      "id": 301,
+      "name": "Super Mario Galaxy",
+      "rom": "smg.iso",
+      "year": 2007,
+      "description": "Plataforma 3D em um planeta esférico",
+      "genre": "Plataforma",
+      "developer": "Nintendo",
+      "rating": 4.9
+    },
+    {
+      "id": 302,
+      "name": "The Legend of Zelda: Twilight Princess",
+      "rom": "zelda-tp.iso",
+      "year": 2006,
+      "description": "Aventura épica em Hyrule",
+      "genre": "Aventura/RPG",
+      "developer": "Nintendo",
+      "rating": 4.8
+    },
+    {
+      "id": 303,
+      "name": "Wii Sports",
+      "rom": "wii-sports.iso",
+      "year": 2006,
+      "description": "Coletânea de esportes com motion controls",
+      "genre": "Esportes",
+      "developer": "Nintendo",
+      "rating": 4.5
+    },
+    {
+      "id": 304,
+      "name": "Super Mario Galaxy 2",
+      "rom": "smg2.iso",
+      "year": 2009,
+      "description": "Continuação de Super Mario Galaxy",
+      "genre": "Plataforma",
+      "developer": "Nintendo",
+      "rating": 4.8
+    },
+    {
+      "id": 305,
+      "name": "The Legend of Zelda: Skyward Sword",
+      "rom": "zelda-skyward.iso",
+      "year": 2011,
+      "description": "Aventura com controles de motion",
+      "genre": "Aventura/RPG",
+      "developer": "Nintendo",
+      "rating": 4.7
+    },
+    {
+      "id": 306,
+      "name": "Donkey Kong Country Returns",
+      "rom": "dkc-returns.iso",
+      "year": 2010,
+      "description": "Plataforma clássico de ação",
+      "genre": "Plataforma",
+      "developer": "Rare",
+      "rating": 4.7
+    },
+    {
+      "id": 307,
+      "name": "Mario Kart Wii",
+      "rom": "mk-wii.iso",
+      "year": 2008,
+      "description": "Corrida com motion controls",
+      "genre": "Corrida",
+      "developer": "Nintendo",
+      "rating": 4.6
+    },
+    {
+      "id": 308,
+      "name": "Wii Sports Resort",
+      "rom": "wii-sports-resort.iso",
+      "year": 2009,
+      "description": "Mais esportes com motion controls",
+      "genre": "Esportes",
+      "developer": "Nintendo",
+      "rating": 4.5
+    }
+  ],
+  "sega": [
+    {
+      "id": 401,
+      "name": "Sonic The Hedgehog",
+      "rom": "sonic1.bin",
+      "year": 1991,
+      "description": "Clássico de corrida e ação",
+      "genre": "Plataforma",
+      "developer": "Sega",
+      "rating": 4.9,
+      "platform": "genesis"
+    },
+    {
+      "id": 402,
+      "name": "Sonic the Hedgehog 2",
+      "rom": "sonic2.bin",
+      "year": 1992,
+      "description": "Sequência popular do Sonic",
+      "genre": "Plataforma",
+      "developer": "Sega",
+      "rating": 4.9,
+      "platform": "genesis"
+    },
+    {
+      "id": 403,
+      "name": "Sonic 3 & Knuckles",
+      "rom": "sonic3k.gen",
+      "year": 1994,
+      "description": "Terceira parte da série Sonic",
+      "genre": "Plataforma",
+      "developer": "Sega",
+      "rating": 4.8,
+      "platform": "genesis"
+    },
+    {
+      "id": 404,
+      "name": "Mortal Kombat",
+      "rom": "mk.bin",
+      "year": 1992,
+      "description": "Jogo de luta clássico",
+      "genre": "Luta",
+      "developer": "Midway",
+      "rating": 4.6,
+      "platform": "genesis"
+    },
+    {
+      "id": 405,
+      "name": "Mortal Kombat II",
+      "rom": "mk2.bin",
+      "year": 1993,
+      "description": "Sequência de Mortal Kombat",
+      "genre": "Luta",
+      "developer": "Midway",
+      "rating": 4.7,
+      "platform": "genesis"
+    },
+    {
+      "id": 406,
+      "name": "Ecco the Dolphin",
+      "rom": "ecco.bin",
+      "year": 1992,
+      "description": "Aventura subaquática",
+      "genre": "Aventura",
+      "developer": "Sega",
+      "rating": 4.5,
+      "platform": "genesis"
+    },
+    {
+      "id": 407,
+      "name": "Golden Axe",
+      "rom": "golden-axe.bin",
+      "year": 1989,
+      "description": "Beat em up clássico",
+      "genre": "Ação",
+      "developer": "Sega",
+      "rating": 4.6,
+      "platform": "genesis"
+    },
+    {
+      "id": 408,
+      "name": "Phantasy Star II",
+      "rom": "ps2.bin",
+      "year": 1989,
+      "description": "RPG de ficção científica",
+      "genre": "RPG",
+      "developer": "Sega",
+      "rating": 4.5,
+      "platform": "genesis"
+    },
+    {
+      "id": 409,
+      "name": "Alex Kidd in Miracle World",
+      "rom": "alex-kidd.sms",
+      "year": 1986,
+      "description": "Plataforma clássico de Master System",
+      "genre": "Plataforma",
+      "developer": "Sega",
+      "rating": 4.6,
+      "platform": "master-system"
+    }
+  ]
+}
