@@ -1,0 +1,144 @@
+{
+  "system": {
+    "name": "NiczRetroSystem",
+    "version": "1.0.0",
+    "buildNumber": 1,
+    "releaseDate": "2026-04-20",
+    "author": "CodeDevGamer",
+    "license": "MIT",
+    "description": "Sistema de launcher para múltiplos emuladores retrô",
+    "website": "https://github.com/codedevgamer/niczretrosystem",
+    "github": "https://github.com/codedevgamer/niczretrosystem",
+    "discord": "https://discord.gg/niczretrosystem"
+  },
+  "display": {
+    "resolution": {
+      "width": 1920,
+      "height": 1080,
+      "scale": 1
+    },
+    "fullscreen": true,
+    "refreshRate": 60,
+    "vsync": true,
+    "brightness": 1.0,
+    "contrast": 1.0
+  },
+  "audio": {
+    "master": 100,
+    "sfx": 70,
+    "music": 0,
+    "enabled": true,
+    "format": "wav",
+    "device": "default"
+  },
+  "input": {
+    "keyboard": true,
+    "mouse": true,
+    "gamepad": true,
+    "touchscreen": false,
+    "pollRate": 100,
+    "vibration": true
+  },
+  "performance": {
+    "maxFps": 60,
+    "renderDistance": "high",
+    "particleEffects": true,
+    "animations": true,
+    "smoothing": true,
+    "multisampling": "auto"
+  },
+  "paths": {
+    "roms": "roms",
+    "saves": "saves",
+    "screenshots": "screenshots",
+    "config": "config",
+    "audio": "audio",
+    "images": "images",
+    "logs": "logs",
+    "temp": "temp",
+    "backups": "backups"
+  },
+  "emulators": {
+    "default": {
+      "psp": "ppsspp",
+      "ps2": "pcsx2",
+      "nes": "retroarch",
+      "snes": "retroarch",
+      "n64": "retroarch",
+      "gb": "retroarch",
+      "gbc": "retroarch",
+      "gba": "retroarch",
+      "wii": "dolphin",
+      "genesis": "retroarch",
+      "masterSystem": "retroarch"
+    }
+  },
+  "startup": {
+    "showSplash": true,
+    "splashDuration": 3000,
+    "autoPlayMusic": false,
+    "loadLastGame": false,
+    "checkUpdates": true,
+    "preloadGames": true
+  },
+  "advanced": {
+    "debugMode": false,
+    "verboseLogging": false,
+    "autoSaveSettings": true,
+    "autoUpdateGameList": true,
+    "cacheCoverArt": false,
+    "enableNetworking": false,
+    "enableCloudSync": false,
+    "maxCacheSize": "100MB"
+  },
+  "storage": {
+    "saveGames": true,
+    "autoBackup": true,
+    "backupInterval": 3600000,
+    "maxBackups": 5,
+    "compressionLevel": 6
+  },
+  "ui": {
+    "language": "pt-BR",
+    "theme": "arcade",
+    "fontSize": 14,
+    "showHints": true,
+    "showFavorites": true,
+    "showRecent": true,
+    "showStats": true
+  },
+  "network": {
+    "enabled": false,
+    "port": 8080,
+    "ssl": false,
+    "updateInterval": 86400000,
+    "timeout": 5000
+  },
+  "privacy": {
+    "collectTelemetry": false,
+    "shareStats": false,
+    "autoReport": false,
+    "dataRetention": 30
+  },
+  "shortcuts": {
+    "openSettings": "c",
+    "openConsoles": "h",
+    "quit": "q",
+    "screenshot": "f1",
+    "fullscreen": "f11",
+    "recordVideo": "f12"
+  },
+  "limits": {
+    "maxGames": 10000,
+    "maxFavorites": 1000,
+    "maxRecent": 50,
+    "maxPlaylists": 100,
+    "maxRetries": 3
+  },
+  "updates": {
+    "checkForUpdates": true,
+    "autoUpdate": false,
+    "updateChannel": "stable",
+    "notifyUpdates": true
+  }
+}
