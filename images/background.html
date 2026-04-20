@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Generator - NiczRetroSystem</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(10, 14, 39, 0.95);
+            border: 2px solid #00D9FF;
+            padding: 15px;
+            border-radius: 8px;
+            color: white;
+            z-index: 100;
+        }
+
+        .control-button {
+            background: #FF006E;
+            border: none;
+            color: white;
+            padding: 8px 15px;
+            margin: 5px 0;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .control-button:hover {
+            background: #00D9FF;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="bgCanvas"></canvas>
+
+    <div class="controls">
+        <button class="control-button" onclick="saveGif()">💾 Salvar GIF</button>
+        <button class="control-button" onclick="savePng()">🖼️ Salvar PNG</button>
+        <button class="control-button" onclick="toggleAnimation()">⏸️ Pausar</button>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('bgCanvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = 1920;
+        canvas.height = 1080;
+
+        let time = 0;
+        let animating = true;
+
+        // Cores
+        const colors = {
+            primary: '#FF006E',
+            secondary: '#00D9FF',
+            accent: '#FFB703',
+            bg: '#0a0e27'
+        };
+
+        // Partículas
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 1;
+                this.vy = (Math.random() - 0.5) * 1;
+                this.size = Math.random() * 3 + 1;
+                this.color = Math.random() > 0.5 ? colors.primary : colors.secondary;
+                this.life = 1;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                this.life -= 0.01;
+
+                // Wrap around
+                if (this.x < 0) this.x = canvas.width;
+                if (this.x > canvas.width) this.x = 0;
+                if (this.y < 0) this.y = canvas.height;
+                if (this.y > canvas.height) this.y = 0;
+            }
+
+            draw(ctx) {
+                ctx.fillStyle = this.color;
+                ctx.globalAlpha = this.life * 0.5;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        const particles = [];
+        for (let i = 0; i < 50; i++) {
+            particles.push(new Particle());
+        }
+
+        function drawBackground() {
+            // Gradiente base
+            const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+            gradient.addColorStop(0, '#0a0e27');
+            gradient.addColorStop(0.5, '#1a1547');
+            gradient.addColorStop(1, '#0a0e27');
+
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
+
+        function drawOrbs() {
+            const orbCount = 5;
+            
+            for (let i = 0; i < orbCount; i++) {
+                const angle = (time * 0.001 + (i / orbCount) * Math.PI * 2);
+                const centerX = canvas.width / 2;
+                const centerY = canvas.height / 2;
+                
+                const x = centerX + Math.cos(angle) * 400;
+                const y = centerY + Math.sin(angle) * 300;
+                
+                const size = 100 + Math.sin(time * 0.005 + i) * 30;
+                
+                const color = i % 2 === 0 ? colors.primary : colors.secondary;
+                
+                const orbGradient = ctx.createRadialGradient(x, y, 0, x, y, size);
+                orbGradient.addColorStop(0, `rgba(${hexToRgb(color)}, 0.3)`);
+                orbGradient.addColorStop(1, `rgba(${hexToRgb(color)}, 0)`);
+                
+                ctx.fillStyle = orbGradient;
+                ctx.beginPath();
+                ctx.arc(x, y, size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function drawParticles() {
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw(ctx);
+
+                if (particle.life <= 0) {
+                    const index = particles.indexOf(particle);
+                    particles.splice(index, 1);
+                    particles.push(new Particle());
+                }
+            });
+
+            ctx.globalAlpha = 1;
+        }
+
+        function drawWaves() {
+            ctx.strokeStyle = colors.secondary;
+            ctx.lineWidth = 2;
+            ctx.globalAlpha = 0.2;
+
+            for (let wave = 0; wave < 3; wave++) {
+                ctx.beginPath();
+                
+                for (let x = 0; x < canvas.width; x += 50) {
+                    const y = canvas.height / 2 + 
+                              Math.sin((x * 0.01 + time * 0.01 + wave * Math.PI / 3)) * 100 +
+                              Math.sin(time * 0.005) * 50;
+                    
+                    if (x === 0) {
+                        ctx.moveTo(x, y);
+                    } else {
+                        ctx.lineTo(x, y);
+                    }
+                }
+                
+                ctx.stroke();
+            }
+
+            ctx.globalAlpha = 1;
+        }
+
+        function drawScanlines() {
+            ctx.strokeStyle = 'rgba(0, 217, 255, 0.08)';
+            ctx.lineWidth = 1;
+
+            for (let y = 0; y < canvas.height; y += 4) {
+                ctx.beginPath();
+                ctx.moveTo(0, y + (time * 2) % 4);
+                ctx.lineTo(canvas.width, y + (time * 2) % 4);
+                ctx.stroke();
+            }
+        }
+
+        function drawGrid() {
+            ctx.strokeStyle = 'rgba(0, 217, 255, 0.05)';
+            ctx.lineWidth = 1;
+
+            const gridSize = 100;
+
+            for (let x = 0; x < canvas.width; x += gridSize) {
+                ctx.beginPath();
+                ctx.moveTo(x, 0);
+                ctx.lineTo(x, canvas.height);
+                ctx.stroke();
+            }
+
+            for (let y = 0; y < canvas.height; y += gridSize) {
+                ctx.beginPath();
+                ctx.moveTo(0, y);
+                ctx.lineTo(canvas.width, y);
+                ctx.stroke();
+            }
+        }
+
+        function hexToRgb(hex) {
+            const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+            return result ? 
+                parseInt(result[1], 16) + ',' + 
+                parseInt(result[2], 16) + ',' + 
+                parseInt(result[3], 16) : 
+                '0,0,0';
+        }
+
+        function animate() {
+            if (animating) {
+                time++;
+            }
+
+            drawBackground();
+            drawOrbs();
+            drawWaves();
+            drawParticles();
+            drawGrid();
+            drawScanlines();
+
+            requestAnimationFrame(animate);
+        }
+
+        function toggleAnimation() {
+            animating = !animating;
+        }
+
+        function savePng() {
+            const link = document.createElement('a');
+            link.href = canvas.toDataURL('image/png');
+            link.download = 'niczretrosystem-background.png';
+            link.click();
+        }
+
+        function saveGif() {
+            alert('Para salvar como GIF, use: gif.js ou ezgif.com\nOu salve como PNG e converta com: convert -delay 10 *.png output.gif');
+        }
+
+        animate();
+    </script>
+</body>
+</html>
