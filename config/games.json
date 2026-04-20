@@ -8,7 +8,10 @@
       "description": "Jogo de ação e exploração em Liberty City",
       "genre": "Ação/Aventura",
       "developer": "Rockstar North",
-      "rating": 4.8
+      "rating": 4.8,
+      "size": "1.2GB",
+      "playtime": "30-50h",
+      "esrb": "M (Mature)"
     },
     {
       "id": 2,
@@ -18,17 +21,23 @@
       "description": "Jogo de espionagem e ação tático",
       "genre": "Ação/Stealth",
       "developer": "Kojima Productions",
-      "rating": 4.9
+      "rating": 4.9,
+      "size": "1.4GB",
+      "playtime": "40-60h",
+      "esrb": "M (Mature)"
     },
     {
       "id": 3,
       "name": "Monster Hunter Freedom Unite",
       "rom": "mh-freedom.iso",
       "year": 2009,
-      "description": "Caça de monstros e RPG",
+      "description": "Caça de monstros e RPG de ação",
       "genre": "RPG/Ação",
       "developer": "Capcom",
-      "rating": 4.7
+      "rating": 4.7,
+      "size": "1.8GB",
+      "playtime": "100+h",
+      "esrb": "T (Teen)"
     },
     {
       "id": 4,
@@ -38,17 +47,23 @@
       "description": "RPG de ação e ficção científica",
       "genre": "RPG",
       "developer": "Square Enix",
-      "rating": 4.6
+      "rating": 4.6,
+      "size": "1.5GB",
+      "playtime": "30-40h",
+      "esrb": "T (Teen)"
     },
     {
       "id": 5,
       "name": "Tekken 6",
       "rom": "tekken6.iso",
       "year": 2009,
-      "description": "Jogo de luta 3D",
+      "description": "Jogo de luta 3D competitivo",
       "genre": "Luta",
       "developer": "Bandai Namco",
-      "rating": 4.5
+      "rating": 4.5,
+      "size": "1.0GB",
+      "playtime": "15-20h",
+      "esrb": "T (Teen)"
     },
     {
       "id": 6,
@@ -58,7 +73,10 @@
       "description": "Ação épica com mitologia grega",
       "genre": "Ação/Aventura",
       "developer": "Ready at Dawn",
-      "rating": 4.8
+      "rating": 4.8,
+      "size": "1.6GB",
+      "playtime": "10-15h",
+      "esrb": "M (Mature)"
     }
   ],
   "ps2": [
@@ -70,7 +88,10 @@
       "description": "Clássico de stealth action",
       "genre": "Ação/Stealth",
       "developer": "Kojima Productions",
-      "rating": 4.9
+      "rating": 4.9,
+      "size": "2.0GB",
+      "playtime": "15-20h",
+      "esrb": "M (Mature)"
     },
     {
       "id": 102,
@@ -80,7 +101,10 @@
       "description": "RPG épico com sistema de battle único",
       "genre": "RPG",
       "developer": "Square Enix",
-      "rating": 4.8
+      "rating": 4.8,
+      "size": "2.4GB",
+      "playtime": "60-80h",
+      "esrb": "T (Teen)"
     },
     {
       "id": 103,
@@ -90,17 +114,23 @@
       "description": "Jogo de ação e exploração revolucionário",
       "genre": "Ação/Aventura",
       "developer": "Rockstar North",
-      "rating": 4.9
+      "rating": 4.9,
+      "size": "2.2GB",
+      "playtime": "40-60h",
+      "esrb": "M (Mature)"
     },
     {
       "id": 104,
       "name": "Final Fantasy XII",
       "rom": "ffxii.iso",
       "year": 2006,
-      "description": "RPG com sistema de gambit",
+      "description": "RPG com sistema de gambit inovador",
       "genre": "RPG",
       "developer": "Square Enix",
-      "rating": 4.7
+      "rating": 4.7,
+      "size": "3.2GB",
+      "playtime": "80-100h",
+      "esrb": "T (Teen)"
     },
     {
       "id": 105,
@@ -110,7 +140,10 @@
       "description": "RPG com personagens Disney",
       "genre": "RPG/Ação",
       "developer": "Square Enix",
-      "rating": 4.6
+      "rating": 4.6,
+      "size": "2.1GB",
+      "playtime": "35-50h",
+      "esrb": "E10+ (Everyone 10+)"
     },
     {
       "id": 106,
@@ -118,9 +151,12 @@
       "rom": "re4.iso",
       "year": 2005,
       "description": "Survival horror inovador",
-      "genre": "Horror",
+      "genre": "Horror/Ação",
       "developer": "Capcom",
-      "rating": 4.8
+      "rating": 4.8,
+      "size": "1.8GB",
+      "playtime": "20-30h",
+      "esrb": "M (Mature)"
     },
     {
       "id": 107,
@@ -130,7 +166,10 @@
       "description": "Ação em Miami nos anos 80",
       "genre": "Ação/Aventura",
       "developer": "Rockstar North",
-      "rating": 4.8
+      "rating": 4.8,
+      "size": "2.1GB",
+      "playtime": "40-60h",
+      "esrb": "M (Mature)"
     }
   ],
   "nintendo": [
@@ -143,6 +182,9 @@
       "genre": "Plataforma",
       "developer": "Nintendo",
       "rating": 5.0,
+      "size": "32KB",
+      "playtime": "2-3h",
+      "esrb": "E (Everyone)",
       "platform": "nes"
     },
     {
@@ -154,6 +196,9 @@
       "genre": "Aventura/RPG",
       "developer": "Nintendo",
       "rating": 4.9,
+      "size": "128KB",
+      "playtime": "15-20h",
+      "esrb": "E (Everyone)",
       "platform": "nes"
     },
     {
@@ -161,10 +206,13 @@
       "name": "Metroid",
       "rom": "metroid.nes",
       "year": 1986,
-      "description": "Exploração e ação",
+      "description": "Exploração e ação futurista",
       "genre": "Ação/Aventura",
       "developer": "Nintendo",
       "rating": 4.8,
+      "size": "128KB",
+      "playtime": "5-8h",
+      "esrb": "E (Everyone)",
       "platform": "nes"
     },
     {
@@ -176,6 +224,9 @@
       "genre": "Plataforma",
       "developer": "Nintendo",
       "rating": 4.9,
+      "size": "384KB",
+      "playtime": "3-5h",
+      "esrb": "E (Everyone)",
       "platform": "snes"
     },
     {
@@ -187,6 +238,9 @@
       "genre": "RPG",
       "developer": "Square",
       "rating": 4.9,
+      "size": "512KB",
+      "playtime": "30-40h",
+      "esrb": "T (Teen)",
       "platform": "snes"
     },
     {
@@ -194,10 +248,13 @@
       "name": "The Legend of Zelda: A Link to the Past",
       "rom": "zelda-alttp.smc",
       "year": 1991,
-      "description": "Aventura em Hyrule",
+      "description": "Aventura em Hyrule com dois mundos",
       "genre": "Aventura/RPG",
       "developer": "Nintendo",
       "rating": 4.9,
+      "size": "512KB",
+      "playtime": "20-30h",
+      "esrb": "E (Everyone)",
       "platform": "snes"
     },
     {
@@ -209,6 +266,9 @@
       "genre": "Plataforma",
       "developer": "Nintendo",
       "rating": 4.9,
+      "size": "32MB",
+      "playtime": "5-8h",
+      "esrb": "K-A (Kids to Adults)",
       "platform": "n64"
     },
     {
@@ -220,6 +280,9 @@
       "genre": "Aventura/RPG",
       "developer": "Nintendo",
       "rating": 4.9,
+      "size": "32MB",
+      "playtime": "25-35h",
+      "esrb": "K-A (Kids to Adults)",
       "platform": "n64"
     },
     {
@@ -231,6 +294,9 @@
       "genre": "Corrida",
       "developer": "Nintendo",
       "rating": 4.7,
+      "size": "16MB",
+      "playtime": "10-20h",
+      "esrb": "K-A (Kids to Adults)",
       "platform": "n64"
     },
     {
@@ -242,6 +308,9 @@
       "genre": "RPG",
       "developer": "Game Freak",
       "rating": 4.8,
+      "size": "512KB",
+      "playtime": "40-60h",
+      "esrb": "E (Everyone)",
       "platform": "gb"
     },
     {
@@ -249,10 +318,13 @@
       "name": "Pokémon Gold",
       "rom": "pokemon-gold.gbc",
       "year": 1999,
-      "description": "Sequência de Pokémon",
+      "description": "Sequência de Pokémon com 2 regiões",
       "genre": "RPG",
       "developer": "Game Freak",
       "rating": 4.8,
+      "size": "1MB",
+      "playtime": "50-70h",
+      "esrb": "E (Everyone)",
       "platform": "gbc"
     },
     {
@@ -264,6 +336,9 @@
       "genre": "RPG",
       "developer": "Game Freak",
       "rating": 4.8,
+      "size": "4MB",
+      "playtime": "40-60h",
+      "esrb": "E (Everyone)",
       "platform": "gba"
     },
     {
@@ -275,6 +350,9 @@
       "genre": "Aventura/RPG",
       "developer": "Nintendo",
       "rating": 4.7,
+      "size": "8MB",
+      "playtime": "20-25h",
+      "esrb": "E (Everyone)",
       "platform": "gba"
     }
   ],
@@ -287,7 +365,10 @@
       "description": "Plataforma 3D em um planeta esférico",
       "genre": "Plataforma",
       "developer": "Nintendo",
-      "rating": 4.9
+      "rating": 4.9,
+      "size": "4.7GB",
+      "playtime": "12-16h",
+      "esrb": "E10+ (Everyone 10+)"
     },
     {
       "id": 302,
@@ -297,7 +378,10 @@
       "description": "Aventura épica em Hyrule",
       "genre": "Aventura/RPG",
       "developer": "Nintendo",
-      "rating": 4.8
+      "rating": 4.8,
+      "size": "3.9GB",
+      "playtime": "40-60h",
+      "esrb": "T (Teen)"
     },
     {
       "id": 303,
@@ -307,7 +391,10 @@
       "description": "Coletânea de esportes com motion controls",
       "genre": "Esportes",
       "developer": "Nintendo",
-      "rating": 4.5
+      "rating": 4.5,
+      "size": "1.9GB",
+      "playtime": "5-10h",
+      "esrb": "E (Everyone)"
     },
     {
       "id": 304,
@@ -317,7 +404,10 @@
       "description": "Continuação de Super Mario Galaxy",
       "genre": "Plataforma",
       "developer": "Nintendo",
-      "rating": 4.8
+      "rating": 4.8,
+      "size": "4.7GB",
+      "playtime": "12-16h",
+      "esrb": "E10+ (Everyone 10+)"
     },
     {
       "id": 305,
@@ -327,7 +417,10 @@
       "description": "Aventura com controles de motion",
       "genre": "Aventura/RPG",
       "developer": "Nintendo",
-      "rating": 4.7
+      "rating": 4.7,
+      "size": "7.7GB",
+      "playtime": "40-50h",
+      "esrb": "T (Teen)"
     },
     {
       "id": 306,
@@ -336,8 +429,11 @@
       "year": 2010,
       "description": "Plataforma clássico de ação",
       "genre": "Plataforma",
-      "developer": "Rare",
-      "rating": 4.7
+      "developer": "Retro Studios",
+      "rating": 4.7,
+      "size": "4.3GB",
+      "playtime": "10-15h",
+      "esrb": "E10+ (Everyone 10+)"
     },
     {
       "id": 307,
@@ -347,7 +443,10 @@
       "description": "Corrida com motion controls",
       "genre": "Corrida",
       "developer": "Nintendo",
-      "rating": 4.6
+      "rating": 4.6,
+      "size": "4.7GB",
+      "playtime": "15-30h",
+      "esrb": "E (Everyone)"
     },
     {
       "id": 308,
@@ -357,7 +456,10 @@
       "description": "Mais esportes com motion controls",
       "genre": "Esportes",
       "developer": "Nintendo",
-      "rating": 4.5
+      "rating": 4.5,
+      "size": "3.5GB",
+      "playtime": "5-10h",
+      "esrb": "E (Everyone)"
     }
   ],
   "sega": [
@@ -370,6 +472,9 @@
       "genre": "Plataforma",
       "developer": "Sega",
       "rating": 4.9,
+      "size": "512KB",
+      "playtime": "2-4h",
+      "esrb": "E (Everyone)",
       "platform": "genesis"
     },
     {
@@ -381,6 +486,9 @@
       "genre": "Plataforma",
       "developer": "Sega",
       "rating": 4.9,
+      "size": "512KB",
+      "playtime": "2-4h",
+      "esrb": "E (Everyone)",
       "platform": "genesis"
     },
     {
@@ -392,6 +500,9 @@
       "genre": "Plataforma",
       "developer": "Sega",
       "rating": 4.8,
+      "size": "1MB",
+      "playtime": "3-5h",
+      "esrb": "E (Everyone)",
       "platform": "genesis"
     },
     {
@@ -399,10 +510,13 @@
       "name": "Mortal Kombat",
       "rom": "mk.bin",
       "year": 1992,
-      "description": "Jogo de luta clássico",
+      "description": "Jogo de luta clássico e violento",
       "genre": "Luta",
       "developer": "Midway",
       "rating": 4.6,
+      "size": "1MB",
+      "playtime": "5-10h",
+      "esrb": "M (Mature)",
       "platform": "genesis"
     },
     {
@@ -410,10 +524,13 @@
       "name": "Mortal Kombat II",
       "rom": "mk2.bin",
       "year": 1993,
-      "description": "Sequência de Mortal Kombat",
+      "description": "Sequência melhorada de Mortal Kombat",
       "genre": "Luta",
       "developer": "Midway",
       "rating": 4.7,
+      "size": "1.5MB",
+      "playtime": "5-10h",
+      "esrb": "M (Mature)",
       "platform": "genesis"
     },
     {
@@ -421,10 +538,13 @@
       "name": "Ecco the Dolphin",
       "rom": "ecco.bin",
       "year": 1992,
-      "description": "Aventura subaquática",
+      "description": "Aventura subaquática única",
       "genre": "Aventura",
       "developer": "Sega",
       "rating": 4.5,
+      "size": "512KB",
+      "playtime": "3-5h",
+      "esrb": "K-A (Kids to Adults)",
       "platform": "genesis"
     },
     {
@@ -432,10 +552,13 @@
       "name": "Golden Axe",
       "rom": "golden-axe.bin",
       "year": 1989,
-      "description": "Beat em up clássico",
+      "description": "Beat em up clássico de fantasia",
       "genre": "Ação",
       "developer": "Sega",
       "rating": 4.6,
+      "size": "512KB",
+      "playtime": "2-3h",
+      "esrb": "E (Everyone)",
       "platform": "genesis"
     },
     {
@@ -443,10 +566,13 @@
       "name": "Phantasy Star II",
       "rom": "ps2.bin",
       "year": 1989,
-      "description": "RPG de ficção científica",
+      "description": "RPG de ficção científica futurista",
       "genre": "RPG",
       "developer": "Sega",
       "rating": 4.5,
+      "size": "512KB",
+      "playtime": "30-40h",
+      "esrb": "K-A (Kids to Adults)",
       "platform": "genesis"
     },
     {
@@ -458,6 +584,9 @@
       "genre": "Plataforma",
       "developer": "Sega",
       "rating": 4.6,
+      "size": "256KB",
+      "playtime": "2-3h",
+      "esrb": "E (Everyone)",
       "platform": "master-system"
     }
   ]
