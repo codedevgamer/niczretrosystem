@@ -1,0 +1,247 @@
+{
+  "themes": [
+    {
+      "id": "arcade",
+      "name": "Arcade Clássico",
+      "description": "Tema retrô estilo arcade vintage",
+      "author": "NiczRetroSystem",
+      "colors": {
+        "primaryColor": "#FF006E",
+        "secondaryColor": "#00D9FF",
+        "accentColor": "#FFB703",
+        "bgColor": "#0a0e27",
+        "textColor": "#FFFFFF",
+        "borderColor": "#00D9FF",
+        "shadowColor": "rgba(0, 217, 255, 0.5)",
+        "hoverColor": "#FF006E"
+      },
+      "fonts": {
+        "family": "Arial, sans-serif",
+        "heading": "Arial Black",
+        "mono": "Courier New",
+        "size": "14px"
+      },
+      "effects": {
+        "glow": true,
+        "scanlines": true,
+        "animations": true,
+        "neonGlow": false,
+        "glitch": false
+      }
+    },
+    {
+      "id": "neon",
+      "name": "Neon Retrô",
+      "description": "Tema com cores neon fluorescentes",
+      "author": "NiczRetroSystem",
+      "colors": {
+        "primaryColor": "#39FF14",
+        "secondaryColor": "#FF006E",
+        "accentColor": "#00D9FF",
+        "bgColor": "#0a0e27",
+        "textColor": "#39FF14",
+        "borderColor": "#39FF14",
+        "shadowColor": "rgba(57, 255, 20, 0.5)",
+        "hoverColor": "#FF006E"
+      },
+      "fonts": {
+        "family": "Arial, sans-serif",
+        "heading": "Arial Black",
+        "mono": "Courier New",
+        "size": "14px"
+      },
+      "effects": {
+        "glow": true,
+        "scanlines": true,
+        "animations": true,
+        "neonGlow": true,
+        "glitch": false
+      }
+    },
+    {
+      "id": "dark",
+      "name": "Modo Escuro",
+      "description": "Tema escuro minimalista",
+      "author": "NiczRetroSystem",
+      "colors": {
+        "primaryColor": "#8B5CF6",
+        "secondaryColor": "#EC4899",
+        "accentColor": "#F59E0B",
+        "bgColor": "#1a1a1a",
+        "textColor": "#FFFFFF",
+        "borderColor": "#8B5CF6",
+        "shadowColor": "rgba(139, 92, 246, 0.3)",
+        "hoverColor": "#EC4899"
+      },
+      "fonts": {
+        "family": "Segoe UI, Tahoma, sans-serif",
+        "heading": "Segoe UI",
+        "mono": "Monaco",
+        "size": "14px"
+      },
+      "effects": {
+        "glow": false,
+        "scanlines": false,
+        "animations": true,
+        "neonGlow": false,
+        "glitch": false
+      }
+    },
+    {
+      "id": "light",
+      "name": "Modo Claro",
+      "description": "Tema claro e limpo",
+      "author": "NiczRetroSystem",
+      "colors": {
+        "primaryColor": "#FF006E",
+        "secondaryColor": "#0066FF",
+        "accentColor": "#FF9500",
+        "bgColor": "#F5F5F5",
+        "textColor": "#000000",
+        "borderColor": "#333333",
+        "shadowColor": "rgba(0, 0, 0, 0.1)",
+        "hoverColor": "#0066FF"
+      },
+      "fonts": {
+        "family": "Segoe UI, Tahoma, sans-serif",
+        "heading": "Segoe UI",
+        "mono": "Monaco",
+        "size": "14px"
+      },
+      "effects": {
+        "glow": false,
+        "scanlines": false,
+        "animations": true,
+        "neonGlow": false,
+        "glitch": false
+      }
+    },
+    {
+      "id": "cyberpunk",
+      "name": "Cyberpunk",
+      "description": "Tema futurista cyberpunk",
+      "author": "NiczRetroSystem",
+      "colors": {
+        "primaryColor": "#FF10F0",
+        "secondaryColor": "#00FF00",
+        "accentColor": "#00FFFF",
+        "bgColor": "#0a0014",
+        "textColor": "#00FF00",
+        "borderColor": "#FF10F0",
+        "shadowColor": "rgba(255, 16, 240, 0.4)",
+        "hoverColor": "#00FFFF"
+      },
+      "fonts": {
+        "family": "Courier New, monospace",
+        "heading": "Courier New",
+        "mono": "Courier New",
+        "size": "14px"
+      },
+      "effects": {
+        "glow": true,
+        "scanlines": true,
+        "animations": true,
+        "neonGlow": true,
+        "glitch": true
+      }
+    },
+    {
+      "id": "retrodot",
+      "name": "Retro Dot Matrix",
+      "description": "Tema de impressora dot matrix dos anos 80",
+      "author": "NiczRetroSystem",
+      "colors": {
+        "primaryColor": "#00AA00",
+        "secondaryColor": "#00FF00",
+        "accentColor": "#FFFF00",
+        "bgColor": "#003300",
+        "textColor": "#00FF00",
+        "borderColor": "#00AA00",
+        "shadowColor": "rgba(0, 255, 0, 0.3)",
+        "hoverColor": "#FFFF00"
+      },
+      "fonts": {
+        "family": "Courier New, monospace",
+        "heading": "Courier New",
+        "mono": "Courier New",
+        "size": "14px"
+      },
+      "effects": {
+        "glow": true,
+        "scanlines": true,
+        "animations": true,
+        "neonGlow": false,
+        "glitch": false
+      }
+    },
+    {
+      "id": "ocean",
+      "name": "Ocean Blue",
+      "description": "Tema com cores oceânicas calmas",
+      "author": "NiczRetroSystem",
+      "colors": {
+        "primaryColor": "#0066CC",
+        "secondaryColor": "#00CCFF",
+        "accentColor": "#33FFCC",
+        "bgColor": "#001133",
+        "textColor": "#FFFFFF",
+        "borderColor": "#00CCFF",
+        "shadowColor": "rgba(0, 204, 255, 0.3)",
+        "hoverColor": "#33FFCC"
+      },
+      "fonts": {
+        "family": "Segoe UI, sans-serif",
+        "heading": "Segoe UI",
+        "mono": "Courier New",
+        "size": "14px"
+      },
+      "effects": {
+        "glow": true,
+        "scanlines": false,
+        "animations": true,
+        "neonGlow": false,
+        "glitch": false
+      }
+    },
+    {
+      "id": "sunset",
+      "name": "Sunset Vibes",
+      "description": "Tema com cores quentes de pôr do sol",
+      "author": "NiczRetroSystem",
+      "colors": {
+        "primaryColor": "#FF6B35",
+        "secondaryColor": "#F7931E",
+        "accentColor": "#FBB03B",
+        "bgColor": "#2C1810",
+        "textColor": "#FFFFFF",
+        "borderColor": "#FF6B35",
+        "shadowColor": "rgba(255, 107, 53, 0.3)",
+        "hoverColor": "#FBB03B"
+      },
+      "fonts": {
+        "family": "Georgia, serif",
+        "heading": "Georgia",
+        "mono": "Courier New",
+        "size": "14px"
+      },
+      "effects": {
+        "glow": false,
+        "scanlines": false,
+        "animations": true,
+        "neonGlow": false,
+        "glitch": false
+      }
+    }
+  ],
+  "defaultTheme": "arcade",
+  "cssVariables": {
+    "--primary-color": "primaryColor",
+    "--secondary-color": "secondaryColor",
+    "--accent-color": "accentColor",
+    "--bg-color": "bgColor",
+    "--text-color": "textColor",
+    "--border-color": "borderColor",
+    "--shadow-color": "shadowColor",
+    "--hover-color": "hoverColor"
+  }
+}
