@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NiczRetroSystem - Launcher</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- SPLASH SCREEN -->
+    <div id="splashScreen" class="splash-screen">
+        <div class="splash-content">
+            <img src="images/logo.png" alt="NiczRetroSystem" class="splash-logo">
+            <h1 class="splash-title">NiczRetroSystem</h1>
+            <p class="splash-subtitle">Launcher Retrô</p>
+            <div class="splash-loader">
+                <div class="loader"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTAINER PRINCIPAL -->
+    <div id="mainContainer" class="main-container hidden">
+        <!-- FUNDO ANIMADO -->
+        <div class="animated-background">
+            <div class="scanlines"></div>
+            <canvas id="backgroundCanvas"></canvas>
+        </div>
+
+        <!-- HEADER -->
+        <header class="header">
+            <div class="header-title">
+                <img src="images/logo.png" alt="Logo" class="header-logo">
+                <h1>NiczRetroSystem</h1>
+            </div>
+            <div class="header-info">
+                <span id="currentTime">00:00</span>
+                <span id="batteryStatus">🔋 100%</span>
+            </div>
+        </header>
+
+        <!-- NAVEGAÇÃO PRINCIPAL -->
+        <nav class="main-nav">
+            <button class="nav-btn active" data-section="games">🎮 JOGOS</button>
+            <button class="nav-btn" data-section="music">🎵 MÚSICAS</button>
+            <button class="nav-btn" data-section="settings">⚙️ CONFIGURAÇÕES</button>
+        </nav>
+
+        <!-- SEÇÃO: JOGOS -->
+        <section id="gamesSection" class="section active">
+            <div class="platforms-grid">
+                <div class="platform-card" data-platform="psp">
+                    <div class="platform-icon">📱</div>
+                    <h3>PSP</h3>
+                    <p id="psp-count">0 jogos</p>
+                </div>
+                <div class="platform-card" data-platform="ps2">
+                    <div class="platform-icon">🎮</div>
+                    <h3>PS2</h3>
+                    <p id="ps2-count">0 jogos</p>
+                </div>
+                <div class="platform-card" data-platform="nintendo">
+                    <div class="platform-icon">🎯</div>
+                    <h3>Nintendo</h3>
+                    <p id="nintendo-count">0 jogos</p>
+                </div>
+                <div class="platform-card" data-platform="wii">
+                    <div class="platform-icon">💿</div>
+                    <h3>Wii</h3>
+                    <p id="wii-count">0 jogos</p>
+                </div>
+                <div class="platform-card" data-platform="sega">
+                    <div class="platform-icon">⚡</div>
+                    <h3>Sega</h3>
+                    <p id="sega-count">0 jogos</p>
+                </div>
+            </div>
+
+            <!-- LISTA DE JOGOS -->
+            <div id="gamesList" class="games-list hidden">
+                <button class="back-btn" id="backBtn">← VOLTAR</button>
+                <div id="gamesGrid" class="games-grid"></div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: MÚSICAS -->
+        <section id="musicSection" class="section hidden">
+            <div class="music-player">
+                <div class="music-display">
+                    <div class="music-cover">
+                        <img id="musicCover" src="images/logo.png" alt="Capa">
+                    </div>
+                    <div class="music-info">
+                        <h2 id="musicTitle">Nenhuma música</h2>
+                        <p id="musicArtist">NiczRetroSystem</p>
+                        <div class="music-progress">
+                            <span id="musicTime">00:00</span>
+                            <div class="progress-bar">
+                                <div id="progressFill" class="progress-fill"></div>
+                            </div>
+                            <span id="musicDuration">00:00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="music-controls">
+                    <button id="prevBtn" class="music-btn">⏮️ Anterior</button>
+                    <button id="playBtn" class="music-btn active">▶️ Reproduzir</button>
+                    <button id="nextBtn" class="music-btn">Próximo ⏭️</button>
+                </div>
+
+                <div class="playlist">
+                    <h3>Playlist</h3>
+                    <div id="playlistItems" class="playlist-items"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: CONFIGURAÇÕES -->
+        <section id="settingsSection" class="section hidden">
+            <div class="settings-container">
+                <div class="settings-group">
+                    <h3>🎨 Tema</h3>
+                    <div class="setting-option">
+                        <label>Estilo Visual:</label>
+                        <select id="themeSelect">
+                            <option value="arcade">🕹️ Arcade Clássico</option>
+                            <option value="neon">💡 Neon Retrô</option>
+                            <option value="dark">🌙 Modo Escuro</option>
+                            <option value="light">☀️ Modo Claro</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="settings-group">
+                    <h3>🔊 Áudio</h3>
+                    <div class="setting-option">
+                        <label>Volume de Efeitos:</label>
+                        <input type="range" id="sfxVolume" min="0" max="100" value="70">
+                        <span id="sfxVolumeDisplay">70%</span>
+                    </div>
+                    <div class="setting-option">
+                        <label>Volume de Músicas:</label>
+                        <input type="range" id="musicVolume" min="0" max="100" value="80">
+                        <span id="musicVolumeDisplay">80%</span>
+                    </div>
+                    <div class="setting-option">
+                        <label>
+                            <input type="checkbox" id="soundEnabled" checked>
+                            Efeitos Sonoros Ativados
+                        </label>
+                    </div>
+                </div>
+
+                <div class="settings-group">
+                    <h3>🎮 Controles</h3>
+                    <div class="setting-option">
+                        <p><strong>Dispositivos Conectados:</strong></p>
+                        <div id="controllersList" class="controllers-list">
+                            <p>Nenhum controle detectado</p>
+                        </div>
+                    </div>
+                    <div class="setting-option">
+                        <button id="testControllerBtn" class="btn-primary">🧪 Testar Controle</button>
+                    </div>
+                </div>
+
+                <div class="settings-group">
+                    <h3>ℹ️ Informações</h3>
+                    <div class="setting-option">
+                        <p><strong>Sistema:</strong> NiczRetroSystem v1.0</p>
+                        <p><strong>Platform:</strong> <span id="platformInfo">Carregando...</span></p>
+                        <p><strong>Armazenamento:</strong> <span id="storageInfo">Carregando...</span></p>
+                    </div>
+                </div>
+
+                <div class="settings-group">
+                    <button id="restartBtn" class="btn-danger">🔄 Reiniciar Sistema</button>
+                    <button id="shutdownBtn" class="btn-danger">⏻️ Desligar</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- MODAL: SELEÇÃO DE JOGO -->
+        <div id="gameModal" class="modal hidden">
+            <div class="modal-content">
+                <button class="modal-close">&times;</button>
+                <div class="game-details">
+                    <img id="gameImage" src="" alt="Jogo">
+                    <div class="game-info">
+                        <h2 id="gameTitle">Título do Jogo</h2>
+                        <p id="gameDescription">Descrição</p>
+                        <div class="game-meta">
+                            <span id="gamePlatform">Platform</span>
+                            <span id="gameYear">Ano</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="game-actions">
+                    <button id="playGameBtn" class="btn-primary">▶️ JOGAR</button>
+                    <button id="favGameBtn" class="btn-secondary">❤️ Favoritar</button>
+                    <button id="closeGameBtn" class="btn-secondary">Cancelar</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <p>NiczRetroSystem © 2026 | Use △ ○ × □ para navegar | SELECT para confirmar</p>
+        </footer>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="js/config.js"></script>
+    <script src="js/audioManager.js"></script>
+    <script src="js/controlsManager.js"></script>
+    <script src="js/gameLoader.js"></script>
+    <script src="js/emulationStationBridge.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
