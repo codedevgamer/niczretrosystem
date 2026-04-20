@@ -1,9 +1,10 @@
-// Carregador de ROMs - NiczRetroSystem
+// Carregador de ROMs - NiczRetroSystem (NOVO SISTEMA)
 
 class GameLoader {
     constructor() {
-        this.games = new Map(); // platform -> games[]
-        this.currentPlatform = null;
+        this.games = new Map(); // console -> games[]
+        this.currentConsole = null;
+        this.currentEmulator = null;
         this.selectedGame = null;
         
         this.initializePlatforms();
@@ -15,126 +16,203 @@ class GameLoader {
         }
     }
 
-    async loadGames(platform) {
+    // Carregar todos os jogos
+    async loadAllGames() {
+        for (const console of Object.keys(CONFIG.PLATFORMS)) {
+            await this.loadGamesForConsole(console);
+        }
+        this.updateConsoleCounts();
+    }
+
+    // Carregar jogos de um console específico
+    async loadGamesForConsole(console) {
         try {
-            // Carregar lista de jogos do config.json
             const response = await fetch('config/games.json');
             const data = await response.json();
             
-            if (data[platform]) {
-                this.games.set(platform, data[platform]);
-                return data[platform];
+            if (data[console]) {
+                this.games.set(console, data[console]);
+                return data[console];
             }
         } catch (error) {
-            console.warn(`Erro ao carregar jogos de ${platform}:`, error);
-            // Retornar lista vazia ou gerar jogos exemplo
-            return this.generateSampleGames(platform);
+            console.warn(`Erro ao carregar jogos de ${console}:`, error);
+            return [];
         }
     }
 
-    generateSampleGames(platform) {
-        // Gerar jogos de exemplo para demonstração
-        const samples = {
-            psp: [
-                { id: 1, name: 'Grand Theft Auto: Liberty City Stories', rom: 'gta-lcs.iso', year: 2005, image: 'images/games/psp/gta.jpg' },
-                { id: 2, name: 'Metal Gear Solid: Peace Walker', rom: 'mgs-pw.iso', year: 2010, image: 'images/games/psp/mgs.jpg' },
-                { id: 3, name: 'Monster Hunter Freedom', rom: 'mh.iso', year: 2005, image: 'images/games/psp/mh.jpg' }
-            ],
-            ps2: [
-                { id: 4, name: 'Metal Gear Solid 2', rom: 'mgs2.iso', year: 2001, image: 'images/games/ps2/mgs2.jpg' },
-                { id: 5, name: 'Final Fantasy X', rom: 'ffx.iso', year: 2001, image: 'images/games/ps2/ffx.jpg' },
-                { id: 6, name: 'Grand Theft Auto III', rom: 'gta3.iso', year: 2001, image: 'images/games/ps2/gta3.jpg' }
-            ],
-            nintendo: [
-                { id: 7, name: 'Super Mario Bros', rom: 'smb.nes', year: 1985, image: 'images/games/nes/smb.jpg' },
-                { id: 8, name: 'The Legend of Zelda', rom: 'zelda.nes', year: 1986, image: 'images/games/nes/zelda.jpg' },
-                { id: 9, name: 'Super Mario World', rom: 'smw.snes', year: 1990, image: 'images/games/snes/smw.jpg' }
-            ],
-            wii: [
-                { id: 10, name: 'Super Mario Galaxy', rom: 'smg.iso', year: 2007, image: 'images/games/wii/smg.jpg' },
-                { id: 11, name: 'The Legend of Zelda: Twilight Princess', rom: 'zelda-tp.iso', year: 2006, image: 'images/games/wii/zelda-tp.jpg' },
-                { id: 12, name: 'Wii Sports', rom: 'wii-sports.iso', year: 2006, image: 'images/games/wii/wii-sports.jpg' }
-            ],
-            sega: [
-                { id: 13, name: 'Sonic The Hedgehog', rom: 'sonic.bin', year: 1991, image: 'images/games/sega/sonic.jpg' },
-                { id: 14, name: 'Sonic 2', rom: 'sonic2.bin', year: 1992, image: 'images/games/sega/sonic2.jpg' },
-                { id: 15, name: 'Mortal Kombat', rom: 'mk.bin', year: 1992, image: 'images/games/sega/mk.jpg' }
-            ]
-        };
-
-        const games = samples[platform] || [];
-        this.games.set(platform, games);
-        return games;
+    // Obter lista de consoles
+    getConsoles() {
+        return Object.keys(CONFIG.PLATFORMS);
     }
 
-    async displayGames(platform) {
-        this.currentPlatform = platform;
-        const games = await this.loadGames(platform);
-        
-        const gamesGrid = document.getElementById('gamesGrid');
-        if (!gamesGrid) return;
+    // Obter informações do console
+    getConsoleInfo(console) {
+        return CONFIG.PLATFORMS[console];
+    }
 
+    // Selecionar console
+    async selectConsole(console) {
+        this.currentConsole = console;
+        console.log(`🎮 Console selecionado: ${console}`);
+        
+        await this.loadGamesForConsole(console);
+        this.showEmulators(console);
+    }
+
+    // Mostrar lista de emuladores do console
+    showEmulators(console) {
+        const section = document.getElementById('emulatorsSection');
+        const title = document.getElementById('emulatorTitle');
+        const list = document.getElementById('emulatorsList');
+        
+        const consoleName = CONFIG.PLATFORMS[console].name;
+        title.textContent = `Escolha o Emulador - ${consoleName}`;
+        
+        // Limpar lista anterior
+        list.innerHTML = '';
+        
+        // Mostrar console único ou múltiplos emuladores
+        const platformConfig = CONFIG.PLATFORMS[console];
+        const emulatorName = platformConfig.emulator;
+        
+        const emulatorCard = document.createElement('div');
+        emulatorCard.className = 'emulator-card';
+        emulatorCard.innerHTML = `
+            <div class="emulator-icon">⚙️</div>
+            <h3>${emulatorName}</h3>
+            <p>${this.games.get(console).length} jogos disponíveis</p>
+        `;
+        
+        emulatorCard.addEventListener('click', () => this.selectEmulator(console, emulatorName));
+        list.appendChild(emulatorCard);
+        
+        // Trocar para seção de emuladores
+        document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+        section.classList.add('active');
+    }
+
+    // Selecionar emulador
+    selectEmulator(console, emulator) {
+        this.currentEmulator = emulator;
+        console.log(`📂 Emulador selecionado: ${emulator}`);
+        
+        this.showGames(console);
+    }
+
+    // Mostrar lista de jogos
+    showGames(console) {
+        const section = document.getElementById('gamesSection');
+        const title = document.getElementById('gamesTitle');
+        const list = document.getElementById('gamesList');
+        
+        const games = this.games.get(console) || [];
+        
+        title.textContent = `${CONFIG.PLATFORMS[console].name} - ${games.length} Jogos`;
+        
+        // Limpar lista anterior
+        list.innerHTML = '';
+        
         if (games.length === 0) {
-            gamesGrid.innerHTML = '<p>Nenhum jogo encontrado para esta plataforma</p>';
-            return;
+            list.innerHTML = '<p class="no-games">Nenhum jogo encontrado</p>';
+        } else {
+            // Criar lista de nomes (sem imagens)
+            const gamesList = document.createElement('div');
+            gamesList.className = 'games-names-list';
+            
+            games.forEach((game, index) => {
+                const gameItem = document.createElement('div');
+                gameItem.className = 'game-name-item';
+                gameItem.innerHTML = `
+                    <span class="game-number">${index + 1}.</span>
+                    <span class="game-name">${game.name}</span>
+                    <span class="game-year">(${game.year})</span>
+                `;
+                
+                gameItem.addEventListener('click', () => this.selectGame(console, game));
+                gamesList.appendChild(gameItem);
+            });
+            
+            list.appendChild(gamesList);
         }
-
-        gamesGrid.innerHTML = games.map(game => `
-            <div class="game-item" data-game-id="${game.id}">
-                <img src="${game.image || 'images/games/placeholder.jpg'}" class="game-thumbnail" alt="${game.name}">
-                <p>${game.name}</p>
-            </div>
-        `).join('');
-
-        // Adicionar event listeners
-        gamesGrid.querySelectorAll('.game-item').forEach(item => {
-            item.addEventListener('click', (e) => this.selectGame(parseInt(e.currentTarget.dataset.gameId)));
-        });
-    }
-
-    selectGame(gameId) {
-        const games = this.games.get(this.currentPlatform);
-        this.selectedGame = games.find(g => g.id === gameId);
         
-        if (this.selectedGame) {
-            audioManager.playSoundEffect('select');
-            this.showGameModal(this.selectedGame);
-        }
+        // Trocar para seção de jogos
+        document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+        section.classList.add('active');
     }
 
+    // Selecionar jogo
+    selectGame(console, game) {
+        this.currentConsole = console;
+        this.selectedGame = game;
+        
+        console.log(`🎮 Jogo selecionado: ${game.name}`);
+        
+        this.showGameModal(game);
+    }
+
+    // Mostrar modal do jogo
     showGameModal(game) {
         const modal = document.getElementById('gameModal');
-        if (!modal) return;
-
-        document.getElementById('gameImage').src = game.image || 'images/games/placeholder.jpg';
+        
         document.getElementById('gameTitle').textContent = game.name;
-        document.getElementById('gameDescription').textContent = `Plataforma: ${CONFIG.PLATFORMS[this.currentPlatform].name}`;
-        document.getElementById('gamePlatform').textContent = CONFIG.PLATFORMS[this.currentPlatform].name;
-        document.getElementById('gameYear').textContent = game.year || '';
-
+        document.getElementById('gameDescription').textContent = game.description;
+        document.getElementById('gameGenre').textContent = `📌 ${game.genre}`;
+        document.getElementById('gameYear').textContent = `📅 ${game.year}`;
+        document.getElementById('gameDeveloper').textContent = `👨‍💻 Desenvolvedor: ${game.developer}`;
+        document.getElementById('gameRating').textContent = `⭐ Avaliação: ${game.rating}/5.0`;
+        
         modal.classList.remove('hidden');
     }
 
+    // Fechar modal
+    closeGameModal() {
+        document.getElementById('gameModal').classList.add('hidden');
+    }
+
+    // Lançar jogo
     async launchGame(game) {
         if (!game) game = this.selectedGame;
         if (!game) return;
 
-        console.log(`Iniciando: ${game.name}`);
+        console.log(`🚀 Iniciando: ${game.name}`);
+        
+        this.closeGameModal();
         
         // Registrar jogo recente
         addRecentlyPlayed(game.id);
 
         // Chamar EmulationStation via bridge
         emulationStationBridge.launchGame(
-            this.currentPlatform,
+            this.currentConsole,
             game.rom,
             game.name
         );
     }
 
-    updateGameCounts() {
-        for (const [platform, games] of this.games) {
-            const countEl = document.getElementById(`${platform}-count`);
+    // Toggle favorito
+    toggleFavorite(game) {
+        if (!game) game = this.selectedGame;
+        if (!game) return;
+
+        const gameId = game.id;
+        const favorites = getFavorites();
+        const isFavorite = favorites.includes(gameId);
+
+        if (isFavorite) {
+            removeFavorite(gameId);
+            const btn = document.getElementById('favGameBtn');
+            if (btn) btn.textContent = '🤍 Favoritar';
+        } else {
+            addFavorite(gameId);
+            const btn = document.getElementById('favGameBtn');
+            if (btn) btn.textContent = '❤️ Desfavoritar';
+        }
+    }
+
+    // Atualizar contador de consoles
+    updateConsoleCounts() {
+        for (const [console, games] of this.games) {
+            const countEl = document.getElementById(`${console}-count`);
             if (countEl) {
                 const count = games.length;
                 countEl.textContent = `${count} ${count === 1 ? 'jogo' : 'jogos'}`;
@@ -142,11 +220,19 @@ class GameLoader {
         }
     }
 
-    async preloadAllGames() {
-        for (const platform of Object.keys(CONFIG.PLATFORMS)) {
-            await this.loadGames(platform);
+    // Voltar para consoles
+    backToConsoles() {
+        document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+        document.getElementById('consolesSection').classList.add('active');
+    }
+
+    // Voltar para emuladores
+    backToEmulators() {
+        if (this.currentConsole) {
+            this.showEmulators(this.currentConsole);
+        } else {
+            this.backToConsoles();
         }
-        this.updateGameCounts();
     }
 }
 
