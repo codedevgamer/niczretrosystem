@@ -10,7 +10,7 @@
     <!-- SPLASH SCREEN -->
     <div id="splashScreen" class="splash-screen">
         <div class="splash-content">
-            <img src="images/logo.png" alt="NiczRetroSystem" class="splash-logo">
+            <img src="images/logo.svg" alt="NiczRetroSystem" class="splash-logo">
             <h1 class="splash-title">NiczRetroSystem</h1>
             <p class="splash-subtitle">Launcher Retrô</p>
             <div class="splash-loader">
@@ -30,90 +30,78 @@
         <!-- HEADER -->
         <header class="header">
             <div class="header-title">
-                <img src="images/logo.png" alt="Logo" class="header-logo">
+                <img src="images/logo.svg" alt="Logo" class="header-logo">
                 <h1>NiczRetroSystem</h1>
             </div>
             <div class="header-info">
                 <span id="currentTime">00:00</span>
-                <span id="batteryStatus">🔋 100%</span>
+                <span id="systemStatus">🎮 Pronto</span>
             </div>
         </header>
 
         <!-- NAVEGAÇÃO PRINCIPAL -->
         <nav class="main-nav">
-            <button class="nav-btn active" data-section="games">🎮 JOGOS</button>
-            <button class="nav-btn" data-section="music">🎵 MÚSICAS</button>
+            <button class="nav-btn active" data-section="consoles">🕹️ CONSOLES</button>
             <button class="nav-btn" data-section="settings">⚙️ CONFIGURAÇÕES</button>
         </nav>
 
-        <!-- SEÇÃO: JOGOS -->
-        <section id="gamesSection" class="section active">
-            <div class="platforms-grid">
-                <div class="platform-card" data-platform="psp">
-                    <div class="platform-icon">📱</div>
+        <!-- SEÇÃO: CONSOLES (TELA INICIAL) -->
+        <section id="consolesSection" class="section active">
+            <div class="consoles-grid">
+                <!-- PSP -->
+                <div class="console-card" data-console="psp">
+                    <div class="console-icon">📱</div>
                     <h3>PSP</h3>
                     <p id="psp-count">0 jogos</p>
+                    <p class="console-subtitle">PlayStation Portable</p>
                 </div>
-                <div class="platform-card" data-platform="ps2">
-                    <div class="platform-icon">🎮</div>
+
+                <!-- PS2 -->
+                <div class="console-card" data-console="ps2">
+                    <div class="console-icon">🎮</div>
                     <h3>PS2</h3>
                     <p id="ps2-count">0 jogos</p>
+                    <p class="console-subtitle">PlayStation 2</p>
                 </div>
-                <div class="platform-card" data-platform="nintendo">
-                    <div class="platform-icon">🎯</div>
-                    <h3>Nintendo</h3>
-                    <p id="nintendo-count">0 jogos</p>
-                </div>
-                <div class="platform-card" data-platform="wii">
-                    <div class="platform-icon">💿</div>
-                    <h3>Wii</h3>
-                    <p id="wii-count">0 jogos</p>
-                </div>
-                <div class="platform-card" data-platform="sega">
-                    <div class="platform-icon">⚡</div>
-                    <h3>Sega</h3>
-                    <p id="sega-count">0 jogos</p>
-                </div>
-            </div>
 
-            <!-- LISTA DE JOGOS -->
-            <div id="gamesList" class="games-list hidden">
-                <button class="back-btn" id="backBtn">← VOLTAR</button>
-                <div id="gamesGrid" class="games-grid"></div>
+                <!-- NINTENDO -->
+                <div class="console-card" data-console="nintendo">
+                    <div class="console-icon">🎯</div>
+                    <h3>NINTENDO</h3>
+                    <p id="nintendo-count">0 jogos</p>
+                    <p class="console-subtitle">NES/SNES/N64/GB/GBA</p>
+                </div>
+
+                <!-- WII -->
+                <div class="console-card" data-console="wii">
+                    <div class="console-icon">💿</div>
+                    <h3>WII</h3>
+                    <p id="wii-count">0 jogos</p>
+                    <p class="console-subtitle">Nintendo Wii</p>
+                </div>
+
+                <!-- SEGA -->
+                <div class="console-card" data-console="sega">
+                    <div class="console-icon">⚡</div>
+                    <h3>SEGA</h3>
+                    <p id="sega-count">0 jogos</p>
+                    <p class="console-subtitle">Genesis/Master System</p>
+                </div>
             </div>
         </section>
 
-        <!-- SEÇÃO: MÚSICAS -->
-        <section id="musicSection" class="section hidden">
-            <div class="music-player">
-                <div class="music-display">
-                    <div class="music-cover">
-                        <img id="musicCover" src="images/logo.png" alt="Capa">
-                    </div>
-                    <div class="music-info">
-                        <h2 id="musicTitle">Nenhuma música</h2>
-                        <p id="musicArtist">NiczRetroSystem</p>
-                        <div class="music-progress">
-                            <span id="musicTime">00:00</span>
-                            <div class="progress-bar">
-                                <div id="progressFill" class="progress-fill"></div>
-                            </div>
-                            <span id="musicDuration">00:00</span>
-                        </div>
-                    </div>
-                </div>
+        <!-- SEÇÃO: EMULADORES (APÓS SELECIONAR CONSOLE) -->
+        <section id="emulatorsSection" class="section hidden">
+            <button class="back-btn" id="backFromEmulators">← VOLTAR</button>
+            <h2 id="emulatorTitle" class="section-title"></h2>
+            <div id="emulatorsList" class="emulators-list"></div>
+        </section>
 
-                <div class="music-controls">
-                    <button id="prevBtn" class="music-btn">⏮️ Anterior</button>
-                    <button id="playBtn" class="music-btn active">▶️ Reproduzir</button>
-                    <button id="nextBtn" class="music-btn">Próximo ⏭️</button>
-                </div>
-
-                <div class="playlist">
-                    <h3>Playlist</h3>
-                    <div id="playlistItems" class="playlist-items"></div>
-                </div>
-            </div>
+        <!-- SEÇÃO: LISTA DE JOGOS -->
+        <section id="gamesSection" class="section hidden">
+            <button class="back-btn" id="backFromGames">← VOLTAR</button>
+            <h2 id="gamesTitle" class="section-title"></h2>
+            <div id="gamesList" class="games-list"></div>
         </section>
 
         <!-- SEÇÃO: CONFIGURAÇÕES -->
@@ -129,26 +117,6 @@
                             <option value="dark">🌙 Modo Escuro</option>
                             <option value="light">☀️ Modo Claro</option>
                         </select>
-                    </div>
-                </div>
-
-                <div class="settings-group">
-                    <h3>🔊 Áudio</h3>
-                    <div class="setting-option">
-                        <label>Volume de Efeitos:</label>
-                        <input type="range" id="sfxVolume" min="0" max="100" value="70">
-                        <span id="sfxVolumeDisplay">70%</span>
-                    </div>
-                    <div class="setting-option">
-                        <label>Volume de Músicas:</label>
-                        <input type="range" id="musicVolume" min="0" max="100" value="80">
-                        <span id="musicVolumeDisplay">80%</span>
-                    </div>
-                    <div class="setting-option">
-                        <label>
-                            <input type="checkbox" id="soundEnabled" checked>
-                            Efeitos Sonoros Ativados
-                        </label>
                     </div>
                 </div>
 
@@ -186,14 +154,15 @@
             <div class="modal-content">
                 <button class="modal-close">&times;</button>
                 <div class="game-details">
-                    <img id="gameImage" src="" alt="Jogo">
                     <div class="game-info">
                         <h2 id="gameTitle">Título do Jogo</h2>
                         <p id="gameDescription">Descrição</p>
                         <div class="game-meta">
-                            <span id="gamePlatform">Platform</span>
+                            <span id="gameGenre">Gênero</span>
                             <span id="gameYear">Ano</span>
                         </div>
+                        <p id="gameDeveloper" class="developer-info">Desenvolvedor</p>
+                        <p id="gameRating" class="rating-info">⭐ 4.5</p>
                     </div>
                 </div>
                 <div class="game-actions">
@@ -212,7 +181,6 @@
 
     <!-- SCRIPTS -->
     <script src="js/config.js"></script>
-    <script src="js/audioManager.js"></script>
     <script src="js/controlsManager.js"></script>
     <script src="js/gameLoader.js"></script>
     <script src="js/emulationStationBridge.js"></script>
