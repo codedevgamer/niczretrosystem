@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placeholder Generator - NiczRetroSystem</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0e27;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #FF006E;
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px #00D9FF;
+        }
+
+        .placeholder-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .placeholder-container {
+            background: #1a1a1a;
+            border: 2px solid #00D9FF;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        canvas {
+            width: 100%;
+            height: auto;
+            display: block;
+            border: 2px solid #FF006E;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            flex: 1;
+            padding: 8px 15px;
+            background: #FF006E;
+            border: none;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #00D9FF;
+            color: black;
+        }
+
+        .controls {
+            background: #1a1a1a;
+            border: 2px solid #00D9FF;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .control-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #00D9FF;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            background: #0a0e27;
+            border: 2px solid #FF006E;
+            color: #00D9FF;
+            border-radius: 4px;
+        }
+
+        .info {
+            background: #003300;
+            border-left: 4px solid #00FF00;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎮 Placeholder Generator - NiczRetroSystem</h1>
+
+        <div class="controls">
+            <div class="control-group">
+                <label>Estilo:</label>
+                <select id="styleSelect" onchange="updatePlaceholders()">
+                    <option value="classic">Clássico</option>
+                    <option value="neon">Neon</option>
+                    <option value="arcade">Arcade</option>
+                    <option value="minimal">Minimalista</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label>Título do Jogo (Padrão):</label>
+                <input type="text" id="titleInput" value="Jogo Sem Capa" onchange="updatePlaceholders()">
+            </div>
+        </div>
+
+        <div class="placeholder-grid">
+            <div class="placeholder-container">
+                <h3>Standard (300x400px)</h3>
+                <canvas id="canvas300x400"></canvas>
+                <div class="button-group">
+                    <button onclick="saveCanvas('canvas300x400', 'placeholder-300x400.png')">💾 Salvar PNG</button>
+                    <button onclick="copyCanvas('canvas300x400')">📋 Copiar</button>
+                </div>
+            </div>
+
+            <div class="placeholder-container">
+                <h3>Quadrado (400x400px)</h3>
+                <canvas id="canvas400x400"></canvas>
+                <div class="button-group">
+                    <button onclick="saveCanvas('canvas400x400', 'placeholder-400x400.png')">💾 Salvar PNG</button>
+                    <button onclick="copyCanvas('canvas400x400')">📋 Copiar</button>
+                </div>
+            </div>
+
+            <div class="placeholder-container">
+                <h3>Grande (500x700px)</h3>
+                <canvas id="canvas500x700"></canvas>
+                <div class="button-group">
+                    <button onclick="saveCanvas('canvas500x700', 'placeholder-500x700.png')">💾 Salvar PNG</button>
+                    <button onclick="copyCanvas('canvas500x700')">📋 Copiar</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="info">
+            <strong>ℹ️ Informações:</strong><br>
+            • Use estes placeholders para jogos sem capa<br>
+            • Dimensão padrão recomendada: 300x400px<br>
+            • Salve como PNG para melhor qualidade<br>
+            • Coloque em: images/games/[plataforma]/<br>
+        </div>
+    </div>
+
+    <script>
+        const colors = {
+            classic: {
+                bg: '#0a0e27',
+                primary: '#FF006E',
+                secondary: '#00D9FF',
+                accent: '#FFB703',
+                text: '#FFFFFF'
+            },
+            neon: {
+                bg: '#0a0014',
+                primary: '#39FF14',
+                secondary: '#FF10F0',
+                accent: '#00FFFF',
+                text: '#39FF14'
+            },
+            arcade: {
+                bg: '#1a1a00',
+                primary: '#FFFF00',
+                secondary: '#FF0000',
+                accent: '#00FF00',
+                text: '#FFFF00'
+            },
+            minimal: {
+                bg: '#1a1a1a',
+                primary: '#CCCCCC',
+                secondary: '#888888',
+                accent: '#555555',
+                text: '#FFFFFF'
+            }
+        };
+
+        function drawPlaceholder(canvasId, width, height) {
+            const canvas = document.getElementById(canvasId);
+            const ctx = canvas.getContext('2d');
+
+            // Ajustar tamanho
+            canvas.width = width;
+            canvas.height = height;
+
+            const style = document.getElementById('styleSelect').value;
+            const title = document.getElementById('titleInput').value;
+            const color = colors[style];
+
+            // Fundo
+            const gradient = ctx.createLinearGradient(0, 0, width, height);
+            gradient.addColorStop(0, color.bg);
+            gradient.addColorStop(1, color.bg);
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, width, height);
+
+            // Borda
+            ctx.strokeStyle = color.primary;
+            ctx.lineWidth = 3;
+            ctx.strokeRect(0, 0, width, height);
+
+            // Padrão
+            ctx.strokeStyle = color.secondary;
+            ctx.lineWidth = 1;
+            ctx.globalAlpha = 0.3;
+
+            // Grade
+            for (let x = 0; x < width; x += 40) {
+                ctx.beginPath();
+                ctx.moveTo(x, 0);
+                ctx.lineTo(x, height);
+                ctx.stroke();
+            }
+            for (let y = 0; y < height; y += 40) {
+                ctx.beginPath();
+                ctx.moveTo(0, y);
+                ctx.lineTo(width, y);
+                ctx.stroke();
+            }
+
+            ctx.globalAlpha = 1;
+
+            // Ícone central
+            ctx.fillStyle = color.primary;
+            ctx.font = `bold ${Math.max(50, width / 5)}px Arial`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('🎮', width / 2, height / 3);
+
+            // Texto
+            ctx.fillStyle = color.secondary;
+            ctx.font = `bold ${Math.max(16, width / 20)}px Arial`;
+            ctx.fillText('Sem Capa', width / 2, height / 2);
+
+            ctx.font = `${Math.max(12, width / 25)}px Arial`;
+            ctx.fillStyle = color.accent;
+            const lines = title.match(/.{1,20}/g) || [title];
+            lines.forEach((line, i) => {
+                ctx.fillText(line, width / 2, height / 2 + 30 + (i * 25));
+            });
+
+            // Rodapé
+            ctx.fillStyle = color.secondary;
+            ctx.globalAlpha = 0.5;
+            ctx.font = `${Math.max(10, width / 30)}px Arial`;
+            ctx.fillText('NiczRetroSystem', width / 2, height - 20);
+        }
+
+        function updatePlaceholders() {
+            drawPlaceholder('canvas300x400', 300, 400);
+            drawPlaceholder('canvas400x400', 400, 400);
+            drawPlaceholder('canvas500x700', 500, 700);
+        }
+
+        function saveCanvas(canvasId, filename) {
+            const canvas = document.getElementById(canvasId);
+            const link = document.createElement('a');
+            link.href = canvas.toDataURL('image/png');
+            link.download = filename;
+            link.click();
+        }
+
+        function copyCanvas(canvasId) {
+            const canvas = document.getElementById(canvasId);
+            canvas.toBlob(blob => {
+                const item = new ClipboardItem({ 'image/png': blob });
+                navigator.clipboard.write([item]);
+                alert('✅ Imagem copiada para clipboard!');
+            });
+        }
+
+        // Inicializar
+        updatePlaceholders();
+    </script>
+</body>
+</html>
