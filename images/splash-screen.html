@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Splash Screen Generator - NiczRetroSystem</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1547 50%, #0a0e27 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        canvas {
+            max-width: 100%;
+            max-height: 100vh;
+            display: block;
+            box-shadow: 0 0 50px rgba(0, 217, 255, 0.5);
+        }
+
+        .controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(10, 14, 39, 0.9);
+            border: 2px solid #00D9FF;
+            padding: 15px;
+            border-radius: 8px;
+            color: white;
+            font-size: 12px;
+            z-index: 100;
+        }
+
+        .control-button {
+            background: #FF006E;
+            border: none;
+            color: white;
+            padding: 8px 15px;
+            margin: 5px 0;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .control-button:hover {
+            background: #00D9FF;
+            color: black;
+        }
+
+        .info {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(10, 14, 39, 0.9);
+            border: 2px solid #FF006E;
+            padding: 15px;
+            border-radius: 8px;
+            color: #00D9FF;
+            font-size: 12px;
+            max-width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="splashCanvas"></canvas>
+
+    <div class="controls">
+        <button class="control-button" onclick="saveImage()">💾 Salvar PNG</button>
+        <button class="control-button" onclick="changeAnimation()">🔄 Próxima Animação</button>
+        <button class="control-button" onclick="resetAnimation()">↺ Resetar</button>
+    </div>
+
+    <div class="info">
+        <strong>NiczRetroSystem Splash Screen</strong><br>
+        Resolução: 1920x1080<br>
+        Animação: Automática<br>
+        Clique em "Salvar PNG" para baixar
+    </div>
+
+    <script>
+        const canvas = document.getElementById('splashCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // Configurar canvas para resolução nativa
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        // Variáveis de animação
+        let time = 0;
+        let animationType = 0;
+
+        // Cores do sistema
+        const colors = {
+            primary: '#FF006E',
+            secondary: '#00D9FF',
+            accent: '#FFB703',
+            bg: '#0a0e27',
+            text: '#FFFFFF'
+        };
+
+        // Gradiente radial
+        const gradient = ctx.createRadialGradient(canvas.width / 2, canvas.height / 2, 0, canvas.width / 2, canvas.height / 2, canvas.width);
+        gradient.addColorStop(0, 'rgba(255, 0, 110, 0.2)');
+        gradient.addColorStop(0.5, 'rgba(0, 217, 255, 0.1)');
+        gradient.addColorStop(1, 'rgba(10, 14, 39, 0.5)');
+
+        function drawBackground() {
+            // Fundo sólido
+            ctx.fillStyle = colors.bg;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Gradiente
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Linhas de varredura
+            ctx.strokeStyle = 'rgba(0, 217, 255, 0.05)';
+            ctx.lineWidth = 1;
+            for (let y = 0; y < canvas.height; y += 4) {
+                ctx.beginPath();
+                ctx.moveTo(0, y);
+                ctx.lineTo(canvas.width, y);
+                ctx.stroke();
+            }
+        }
+
+        function drawLogo() {
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2 - 100;
+
+            // Círculo de fundo
+            ctx.fillStyle = 'rgba(0, 217, 255, 0.1)';
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, 120, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Borda do círculo
+            ctx.strokeStyle = colors.secondary;
+            ctx.lineWidth = 3;
+            ctx.stroke();
+
+            // Controle estilizado
+            ctx.fillStyle = colors.primary;
+            ctx.font = 'bold 80px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('🎮', centerX, centerY);
+        }
+
+        function drawTitle() {
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2 + 80;
+
+            // Texto principal
+            ctx.font = 'bold 72px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+
+            // Efeito de glow
+            ctx.fillStyle = colors.secondary;
+            ctx.shadowColor = colors.secondary;
+            ctx.shadowBlur = 20;
+            ctx.fillText('NiczRetroSystem', centerX, centerY);
+
+            // Reset shadow
+            ctx.shadowBlur = 0;
+
+            // Subtítulo
+            ctx.font = '24px Arial';
+            ctx.fillStyle = colors.secondary;
+            ctx.fillText('Launcher Retrô', centerX, centerY + 60);
+        }
+
+        function drawParticles() {
+            const particleCount = 8;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const angle = (time * 0.005 + (i / particleCount) * Math.PI * 2);
+                const x = canvas.width / 2 + Math.cos(angle) * 200;
+                const y = canvas.height / 2 + Math.sin(angle) * 150;
+                
+                const size = 8 + Math.sin(time * 0.01 + i) * 4;
+                
+                ctx.fillStyle = i % 2 === 0 ? colors.primary : colors.secondary;
+                ctx.globalAlpha = 0.5 + Math.sin(time * 0.01 + i) * 0.3;
+                ctx.beginPath();
+                ctx.arc(x, y, size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+            
+            ctx.globalAlpha = 1;
+        }
+
+        function drawLoader() {
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2 + 200;
+            const radius = 20;
+
+            // Círculo de fundo
+            ctx.strokeStyle = 'rgba(0, 217, 255, 0.2)';
+            ctx.lineWidth = 4;
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
+            ctx.stroke();
+
+            // Círculo animado
+            ctx.strokeStyle = colors.secondary;
+            ctx.lineWidth = 4;
+            const rotation = (time * 0.01) % (Math.PI * 2);
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, radius, rotation, rotation + Math.PI * 0.8);
+            ctx.stroke();
+
+            // Pontos de carregamento
+            const dots = Math.floor((time * 0.01) % 4);
+            ctx.fillStyle = colors.secondary;
+            ctx.font = '20px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('.'.repeat(dots), centerX + 50, centerY + 5);
+        }
+
+        function drawWaveEffect() {
+            ctx.strokeStyle = colors.secondary;
+            ctx.lineWidth = 2;
+            ctx.globalAlpha = 0.3 - Math.sin(time * 0.005) * 0.2;
+
+            for (let wave = 0; wave < 3; wave++) {
+                const radius = 50 + wave * 40 + Math.sin(time * 0.01) * 20;
+                
+                ctx.beginPath();
+                ctx.arc(canvas.width / 2, canvas.height / 2 - 100, radius, 0, Math.PI * 2);
+                ctx.stroke();
+            }
+
+            ctx.globalAlpha = 1;
+        }
+
+        function drawGlitchEffect() {
+            const glitchAmount = Math.sin(time * 0.02) * 5;
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
+
+            // Efeito de glitch
+            if (Math.random() > 0.95) {
+                ctx.fillStyle = 'rgba(0, 217, 255, 0.1)';
+                ctx.fillRect(0, Math.random() * canvas.height, canvas.width, 20);
+            }
+        }
+
+        function drawScanlines() {
+            ctx.strokeStyle = 'rgba(0, 217, 255, 0.05)';
+            ctx.lineWidth = 1;
+
+            const offset = (time * 2) % 4;
+            
+            for (let y = offset; y < canvas.height; y += 4) {
+                ctx.beginPath();
+                ctx.moveTo(0, y);
+                ctx.lineTo(canvas.width, y);
+                ctx.stroke();
+            }
+        }
+
+        function animate() {
+            time++;
+
+            drawBackground();
+            drawWaveEffect();
+            drawLogo();
+            drawTitle();
+            drawParticles();
+            drawLoader();
+            
+            if (animationType % 2 === 1) {
+                drawGlitchEffect();
+            }
+            
+            drawScanlines();
+
+            requestAnimationFrame(animate);
+        }
+
+        function changeAnimation() {
+            animationType++;
+        }
+
+        function resetAnimation() {
+            time = 0;
+            animationType = 0;
+        }
+
+        function saveImage() {
+            const link = document.createElement('a');
+            link.href = canvas.toDataURL('image/png');
+            link.download = 'niczretrosystem-splash.png';
+            link.click();
+        }
+
+        // Iniciar animação
+        animate();
+    </script>
+</body>
+</html>
