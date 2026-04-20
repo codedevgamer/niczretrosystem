@@ -1,0 +1,170 @@
+{
+  "keyboard": {
+    "up": "ArrowUp",
+    "down": "ArrowDown",
+    "left": "ArrowLeft",
+    "right": "ArrowRight",
+    "select": "Enter",
+    "back": "Escape",
+    "pageUp": "PageUp",
+    "pageDown": "PageDown",
+    "start": "s",
+    "pause": "p",
+    "settings": "c",
+    "quit": "q"
+  },
+  "keyboardAlternative": {
+    "up": "w",
+    "down": "s",
+    "left": "a",
+    "right": "d",
+    "select": "Space",
+    "back": "Backspace"
+  },
+  "gamepad": {
+    "buttons": {
+      "up": 12,
+      "down": 13,
+      "left": 14,
+      "right": 15,
+      "select": 0,
+      "back": 8,
+      "start": 9,
+      "l1": 4,
+      "r1": 5,
+      "l2": 6,
+      "r2": 7,
+      "l3": 10,
+      "r3": 11,
+      "xbox": 16
+    },
+    "axes": {
+      "leftStickX": 0,
+      "leftStickY": 1,
+      "rightStickX": 2,
+      "rightStickY": 3,
+      "leftTrigger": 4,
+      "rightTrigger": 5
+    },
+    "deadzone": 0.3,
+    "triggerThreshold": 0.5,
+    "axisThreshold": 0.5
+  },
+  "ps4": {
+    "name": "PlayStation 4",
+    "buttonMap": {
+      "Cross": 0,
+      "Circle": 1,
+      "Square": 2,
+      "Triangle": 3,
+      "L1": 4,
+      "R1": 5,
+      "L2": 6,
+      "R2": 7,
+      "Share": 8,
+      "Options": 9,
+      "L3": 10,
+      "R3": 11,
+      "PS": 12,
+      "Touchpad": 13
+    },
+    "axisMap": {
+      "leftStickX": 0,
+      "leftStickY": 1,
+      "rightStickX": 2,
+      "rightStickY": 3,
+      "l2": 4,
+      "r2": 5
+    }
+  },
+  "xbox": {
+    "name": "Xbox Controller",
+    "buttonMap": {
+      "A": 0,
+      "B": 1,
+      "X": 2,
+      "Y": 3,
+      "LB": 4,
+      "RB": 5,
+      "Back": 8,
+      "Start": 9,
+      "LeftStick": 10,
+      "RightStick": 11,
+      "Xbox": 16
+    },
+    "axisMap": {
+      "leftStickX": 0,
+      "leftStickY": 1,
+      "rightStickX": 2,
+      "rightStickY": 3,
+      "leftTrigger": 4,
+      "rightTrigger": 5
+    }
+  },
+  "generic": {
+    "name": "Controle Genérico",
+    "buttonMap": {
+      "button0": 0,
+      "button1": 1,
+      "button2": 2,
+      "button3": 3,
+      "button4": 4,
+      "button5": 5,
+      "button6": 6,
+      "button7": 7,
+      "button8": 8,
+      "button9": 9,
+      "button10": 10,
+      "button11": 11,
+      "button12": 12,
+      "button13": 13,
+      "button14": 14,
+      "button15": 15,
+      "button16": 16
+    }
+  },
+  "customProfiles": [
+    {
+      "id": "profile1",
+      "name": "Perfil Clássico",
+      "description": "Mapeamento clássico de controles",
+      "mappings": {
+        "up": 12,
+        "down": 13,
+        "left": 14,
+        "right": 15,
+        "select": 0,
+        "back": 1,
+        "start": 9
+      }
+    },
+    {
+      "id": "profile2",
+      "name": "Perfil Alternativo",
+      "description": "Mapeamento alternativo",
+      "mappings": {
+        "up": 2,
+        "down": 0,
+        "left": 3,
+        "right": 1,
+        "select": 8,
+        "back": 9,
+        "start": 6
+      }
+    },
+    {
+      "id": "profile3",
+      "name": "Perfil Arcade",
+      "description": "Configuração tipo arcade",
+      "mappings": {
+        "up": 12,
+        "down": 13,
+        "left": 14,
+        "right": 15,
+        "select": 4,
+        "back": 5,
+        "start": 9
+      }
+    }
+  ]
+}
